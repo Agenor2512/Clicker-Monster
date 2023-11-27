@@ -1,0 +1,32 @@
+:root {
+    --lightYellow: #F8DF78;
+    --midYellow: #FFD764;
+    --darkYellow: #CCAC50;
+    --lightBlue: #B0D0EB;
+    --midBlue: #86B9E1;
+    --darkBlue: #7699C1;
+    --lightBrown: #7C7663;
+    --midBrown: #846C45;
+    --darkBrown: #675437;
+    --lightGreen: #AADD92;
+    --midGreen: #7EA356;
+    --darkGreen: #658245;
+}
+
+
+header h1 {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    color: var(--lightYellow);
+    background-color: var(--midGreen);
+    margin-top: 0%;
+    padding: 1rem;
+
+}
+
+html,
+body {
+    padding: 0px;
+    margin: 0px;
+}
