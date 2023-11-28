@@ -75,7 +75,6 @@ footer button {
     border-bottom: 0px;
     background-color: var(--midGreen);
     padding: 0;
-    color: white;
 }
 
 footer button.selected {
@@ -85,4 +84,5 @@ footer button.selected {
 
 footer a {
     text-decoration: none;
+    color: white;
 }
