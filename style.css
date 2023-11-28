@@ -83,6 +83,7 @@ footer button.selected {
 }
 
 footer a {
+    font-family: var(--textFont);
     text-decoration: none;
     color: white;
 }
