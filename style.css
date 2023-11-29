@@ -30,7 +30,7 @@ body {
 
 body {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 header h1 {
@@ -60,7 +60,7 @@ main {
     flex-grow: 1;
 }
 
-footer ul {  
+footer ul {
     display: flex;
     width: 100%;
     margin: 0;
@@ -86,4 +86,14 @@ footer a {
     font-family: var(--textFont);
     text-decoration: none;
     color: white;
+}
+
+main,
+section {
+
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: .5rem;
+
 }
