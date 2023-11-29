@@ -72,10 +72,28 @@ h1 {
 }
 
 main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex-grow: 1;
 }
 
-footer ul {
+main #background-bar {
+    width: 50%;
+    height: 15px;
+    border-radius: 12px;
+    background-color: rgba(169, 169, 169, 0.8);
+}
+
+main #foreground-bar {
+    width: 0;
+    height: 15px;
+    border-radius: 12px;
+    background-color: green;
+}
+
+footer ul {  
     display: flex;
     width: 100%;
     margin: 0;
