@@ -33,6 +33,10 @@ body {
 body {
     display: flex;
     flex-direction: column;
+    background-image: url("assets/background.png");
+    background-repeat: no-repeat;
+    background-position: 25% 75%;
+    background-size: cover;
 }
 
 header {
@@ -47,6 +51,11 @@ h1 {
     font-family: var(--titleFont);
     font-size: 2.5rem;
     color: var(--lightYellow);
+    text-shadow:
+        -1px -1px 0 var(--darkBlue),
+        1px -1px 0 var(--darkBlue),
+        -1px 1px 0 var(--darkBlue),
+        2px 7px 7px rgba(0, 0, 0, 0.5);
     background-color: var(--midGreen);
     margin-top: 0%;
     margin-bottom: 0%;
