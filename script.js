@@ -1,5 +1,8 @@
 const buttons = document.querySelectorAll("button");
 
+let clicksCounter = 0;
+let autoClicksCounter = 0;
+let totalClicksCounter = 0;
 let currentXP = 0;
 
 /* On déclare le niveau courant et précédent à 10
@@ -19,6 +22,17 @@ buttons.forEach(button => {
 
         button.classList.add("selected");
     });
+});
+
+/********************************/
+/********* Clicks counter *******/
+/********************************/
+
+eggSprite.addEventListener('click', function() {
+    clicksCounter++;
+    totalClicksCounter++;
+    totalClicksCounter += autoClicksCounter;
+    increaseXP(autoClicksCounter + 1);
 });
 
 /********************************/
