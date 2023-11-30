@@ -28,7 +28,9 @@ buttons.forEach(button => {
 /********* Clicks counter *******/
 /********************************/
 
-eggSprite.addEventListener('click', function() {
+const eggSprite = document.querySelector(".eggSprite")
+
+eggSprite.addEventListener('click', function () {
     clicksCounter++;
     totalClicksCounter++;
     totalClicksCounter += autoClicksCounter;
@@ -42,7 +44,7 @@ eggSprite.addEventListener('click', function() {
 /* Permet d'ajouter l'XP à l'XP courant
    On test le total d'XP pour voir si on passe au niveau suivant (si on passe dans le "si")
    Puis on met à jour la barre de progression, on affiche l'XP au dessus de la barre avec displayXP() */
-   const increaseXP = (value) => {
+const increaseXP = (value) => {
     currentXP += value;
 
     if (currentXP >= xpOfCurrentLvl) {
@@ -82,9 +84,9 @@ const updateProgressBar = () => {
     const backgroundBar = document.querySelector('#background-bar');
     const maxwidth = backgroundBar.offsetWidth;
     const progressWidth = (currentXP / xpOfCurrentLvl) * maxwidth;
-    
+
     foregroundBar.style.width = `${progressWidth}px`;
-    
+
 }
 
 /* Affiche le nombre d'XP à atteindre et le nombre d'XP courant 
@@ -95,3 +97,14 @@ const displayXP = () => {
     const xpText = document.querySelector('#xp-text');
     xpText.textContent = `${currentXP}/${xpOfCurrentLvl}XP`;
 }
+
+// Animation au clic du sprite
+document.querySelector(".eggSprite").addEventListener("click", function () {
+    const bouton = this;
+    bouton.classList.add("clicked");
+
+    // Retirez la classe 'clicked' après un certain délai pour permettre la répétition de l'animation
+    setTimeout(function () {
+        bouton.classList.remove("clicked");
+    }, 300); // Durée de l'animation en millisecondes (0.3s dans cet exemple)
+});
