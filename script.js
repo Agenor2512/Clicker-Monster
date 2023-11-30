@@ -8,6 +8,7 @@ let currentXP = 0;
    progression vers le prochain niveau */
 let xpOfCurrentLvl = 10;
 let xpOfPreviousLvl = 10;
+let userLvl = 1;
 
 /********************************/
 /********* Clicks counter *******/
@@ -52,6 +53,7 @@ const passToNextLvl = () => {
     xpOfCurrentLvl = fibonacci();
     xpOfPreviousLvl = temporary;
     currentXP = remainingXP;
+    userLvl += 1;
 }
 
 /* Calcule en prévision du prochain niveau grâce à la suite 
