@@ -74,12 +74,16 @@ h1 {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     flex-grow: 1;
 }
 
+main #xp-text {
+    align-self: center;
+    font-family: var(--textFont);
+}
+
 main #background-bar {
+    align-self: center;
     width: 50%;
     height: 15px;
     border-radius: 12px;
@@ -87,6 +91,7 @@ main #background-bar {
 }
 
 main #foreground-bar {
+    align-self: center;
     width: 0;
     height: 15px;
     border-radius: 12px;
