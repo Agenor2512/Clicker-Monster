@@ -1,5 +1,3 @@
-const buttons = document.querySelectorAll("button");
-
 let clicksCounter = 0;
 let autoClicksCounter = 0;
 let totalClicksCounter = 0;
@@ -10,19 +8,6 @@ let currentXP = 0;
    progression vers le prochain niveau */
 let xpOfCurrentLvl = 10;
 let xpOfPreviousLvl = 10;
-
-// Permet de parcourir les boutons de navigations et de leur appliquer ou non 
-// la classe "selected" pour changer leur style
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-
-        buttons.forEach(button => {
-            button.classList.remove("selected");
-        });
-
-        button.classList.add("selected");
-    });
-});
 
 /********************************/
 /********* Clicks counter *******/
