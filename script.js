@@ -28,7 +28,7 @@ buttons.forEach(button => {
 /********* Clicks counter *******/
 /********************************/
 
-clickButton.addEventListener('click', function() {
+eggSprite.addEventListener('click', function() {
     clicksCounter++;
     totalClicksCounter++;
     totalClicksCounter += autoClicksCounter;
