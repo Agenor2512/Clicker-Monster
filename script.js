@@ -79,5 +79,5 @@ const updateProgressBar = () => {
    -> xpOfCurrentLvl correspond à l'XP qu'il faut atteindre */
 const displayXP = () => {
     const xpText = document.querySelector('#xp-text');
-    xpText.textContent = `${currentXP}/${xpOfCurrentLvl}`;
+    xpText.textContent = `${currentXP}/${xpOfCurrentLvl}XP`;
 }

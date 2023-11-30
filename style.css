@@ -42,6 +42,7 @@ body {
 header {
     display: flex;
     width: 100%;
+    border-bottom: 1px solid var(--darkBrown);
 }
 
 header,
@@ -61,7 +62,6 @@ h1 {
     margin-bottom: 0%;
     padding: 0.5rem;
     padding-left: 0.7rem;
-
 }
 
 .egg-logo {
@@ -75,15 +75,26 @@ main {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    margin-top: 2rem;
+}
+
+main .bar-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;  
 }
 
 main #xp-text {
-    align-self: center;
+    align-self: flex-end;
+    margin-right: 6.2rem;
+    margin-bottom: 0;
     font-family: var(--textFont);
+    color: white;
 }
 
 main #background-bar {
-    align-self: center;
     width: 50%;
     height: 15px;
     border-radius: 12px;
@@ -91,7 +102,6 @@ main #background-bar {
 }
 
 main #foreground-bar {
-    align-self: center;
     width: 0;
     height: 15px;
     border-radius: 12px;
