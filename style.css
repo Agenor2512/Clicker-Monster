@@ -98,7 +98,7 @@ main #foreground-bar {
     background-color: green;
 }
 
-footer ul {  
+footer ul {
     display: flex;
     width: 100%;
     margin: 0;
