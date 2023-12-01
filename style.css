@@ -33,11 +33,16 @@ body {
 body {
     display: flex;
     flex-direction: column;
+    background-image: url("assets/background.png");
+    background-repeat: no-repeat;
+    background-position: 25% 75%;
+    background-size: cover;
 }
 
 header {
     display: flex;
     width: 100%;
+    border-bottom: 1px solid var(--darkBrown);
 }
 
 header,
@@ -47,12 +52,16 @@ h1 {
     font-family: var(--titleFont);
     font-size: 2.5rem;
     color: var(--lightYellow);
+    text-shadow:
+        -1px -1px 0 var(--darkBlue),
+        1px -1px 0 var(--darkBlue),
+        -1px 1px 0 var(--darkBlue),
+        2px 7px 7px rgba(0, 0, 0, 0.5);
     background-color: var(--midGreen);
     margin-top: 0%;
     margin-bottom: 0%;
     padding: 0.5rem;
     padding-left: 0.7rem;
-
 }
 
 .egg-logo {
@@ -63,9 +72,73 @@ h1 {
 }
 
 main {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
+    margin-top: 3rem;
+}
+
+main .bar-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-end;
     width: 100%;
 }
+
+main #xp-text {
+    align-self: flex-end;
+    margin-right: 6.2rem;
+    margin-bottom: 0;
+    font-family: var(--textFont);
+    color: white;
+}
+
+main #background-bar {
+    width: 50%;
+    height: 15px;
+    border-radius: 12px;
+    background-color: rgba(169, 169, 169, 0.8);
+}
+
+main #foreground-bar {
+    width: 0;
+    height: 15px;
+    border-radius: 12px;
+    background-color: green;
+}
+
+.eggSprite {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    width: auto;
+    height: 25rem;
+    padding-top: 4rem;
+    transition: transform 0.3s ease;
+}
+
+@keyframes eggSpriteAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+
+    }
+}
+
+.eggSprite.clicked {
+    animation-name: eggSpriteAnimation;
+    animation-duration: 0.2s;
+}
+
+
 
 footer ul {
     display: flex;
