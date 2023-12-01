@@ -1,5 +1,9 @@
 let clicksCounter = 0;
+<<<<<<< HEAD
 let autoClicksCounter = 1;
+=======
+let autoClicksCounter = 10;
+>>>>>>> 5609694aa08a0aa933da171e41641302aff5e663
 let totalClicksCounter = 0;
 let currentXP = 0;
 
@@ -99,6 +103,7 @@ const displayXP = () => {
     const xpText = document.querySelector('#xp-text');
     xpText.textContent = `${currentXP}/${xpOfCurrentLvl}XP`;
 }
+<<<<<<< HEAD
 
 // Animation au clic du sprite
 document.querySelector(".eggSprite").addEventListener("click", function () {
@@ -110,3 +115,5 @@ document.querySelector(".eggSprite").addEventListener("click", function () {
         bouton.classList.remove("clicked");
     }, 300); // Durée de l'animation en millisecondes (0.3s dans cet exemple)
 });
+=======
+>>>>>>> 5609694aa08a0aa933da171e41641302aff5e663
