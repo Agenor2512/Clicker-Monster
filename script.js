@@ -1,5 +1,5 @@
 let clicksCounter = 0;
-let autoClicksCounter = 10;
+let autoClicksCounter = 1;
 let totalClicksCounter = 0;
 let currentXP = 0;
 
@@ -20,17 +20,20 @@ eggSprite.addEventListener('click', function () {
     clicksCounter++;
     totalClicksCounter++;
     totalClicksCounter += autoClicksCounter;
-    increaseXP(autoClicksCounter + 1);
+    increaseXP(autoClicksCounter);
 });
 
 /********************************/
 /********* Auto-clicker *******/
 /********************************/
 
+function click() {
+    autoClicksCounter++
+    increaseXP(totalClicksCounter);
+}
+
 function startAutoClicker() {
-    setInterval(function() {
-        currentXP += autoClicksCounter;
-    }, 1000);
+   setInterval(click, 250);
 }
 
 startAutoClicker();
