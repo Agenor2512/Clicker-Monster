@@ -31,7 +31,7 @@ choose.onclick = () => {
 if (localStorage.getItem("username") != null)
     h2test.textContent = `Hello ${localStorage.getItem("username")} !`
 let clicksCounter = 0;
-let autoClicksCounter = 0;
+let autoClicksCounter = 1;
 let totalClicksCounter = 0;
 let currentXP = 0;
 
@@ -52,8 +52,23 @@ eggSprite.addEventListener('click', function () {
     clicksCounter++;
     totalClicksCounter++;
     totalClicksCounter += autoClicksCounter;
-    increaseXP(autoClicksCounter + 1);
+    increaseXP(autoClicksCounter);
 });
+
+/********************************/
+/********* Auto-clicker *******/
+/********************************/
+
+function click() {
+    autoClicksCounter++
+    increaseXP(totalClicksCounter);
+}
+
+function startAutoClicker() {
+   setInterval(click, 250);
+}
+
+startAutoClicker();
 
 /********************************/
 /********* Progress Bar *********/
@@ -74,7 +89,7 @@ const increaseXP = (value) => {
 }
 
 /* Décrit le passage au niveau suivant 
-   Remaining XP permet "d'arondir" l'XP pour qu'il corresponde à l'XP dont 
+   Remaining XP permet "d'arrondir" l'XP pour qu'il corresponde à l'XP dont 
    il y a besoin pour passer le niveau courant 
    -> temporary est une variable temporaire qui permet de conserver le niveau courant
    et le niveau précédent pour les intervertir et simuler le passage de niveaux */
