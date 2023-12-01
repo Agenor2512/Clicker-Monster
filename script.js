@@ -1,4 +1,17 @@
 const buttons = document.querySelectorAll("button");
+const eggSprite = document.querySelector(".eggSprite")
+
+let clicksCounter = 0;
+let autoClicksCounter = 1;
+let totalClicksCounter = 0;
+let currentXP = 0;
+
+/* On déclare le niveau courant et précédent à 10
+   pour rendre plus difficile dès le début la
+   progression vers le prochain niveau */
+let xpOfCurrentLvl = 10;
+let xpOfPreviousLvl = 10;
+let userLvl = 1;
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -30,23 +43,10 @@ choose.onclick = () => {
 
 if (localStorage.getItem("username") != null)
     h2test.textContent = `Hello ${localStorage.getItem("username")} !`
-let clicksCounter = 0;
-let autoClicksCounter = 1;
-let totalClicksCounter = 0;
-let currentXP = 0;
-
-/* On déclare le niveau courant et précédent à 10
-   pour rendre plus difficile dès le début la
-   progression vers le prochain niveau */
-let xpOfCurrentLvl = 10;
-let xpOfPreviousLvl = 10;
-let userLvl = 1;
 
 /********************************/
 /********* Clicks counter *******/
 /********************************/
-
-const eggSprite = document.querySelector(".eggSprite")
 
 eggSprite.addEventListener('click', function () {
     clicksCounter++;
