@@ -52,7 +52,7 @@ eggSprite.addEventListener('click', function () {
     clicksCounter++;
     totalClicksCounter++;
     totalClicksCounter += autoClicksCounter;
-    increaseXP(autoClicksCounter);
+    increaseXP(1);
 });
 
 /********************************/
