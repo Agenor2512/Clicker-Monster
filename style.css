@@ -64,6 +64,7 @@ h1 {
 
 main {
     flex-grow: 1;
+    width: 100%;
 }
 
 footer ul {
@@ -95,11 +96,29 @@ footer a {
 }
 
 main,
-section {
+form {
 
     display: flex;
     flex-direction: column;
-    width: fit-content;
-    gap: .5rem;
+    align-items: center;
+    gap: .7rem;
+    padding: 0.4rem;
 
+}
+
+input[type="text"] {
+    padding: 0.2rem;
+    border-radius: 15px;
+    border-color: #7EA356;
+}
+
+
+#choose {
+    background-color: transparent;
+    border: none;
+}
+
+#choose,
+image {
+    padding: 0;
 }

@@ -11,14 +11,22 @@ buttons.forEach(button => {
     });
 });
 
-// récupère la valeur
+
+const form = document.querySelector("#form");
+const username = document.querySelector("#username");
+
+//permets de ne pas rafraichir la page
+
+// form.onsubmit = function (event) {
+//     console.log("Hello");
+// }
+//utilisation .addEventListener au click ouvrir l'index.html
+
 // utilisation du local storage pour stocker le nom du joueur //
 
-const input = document.querySelector("input");
-const choose = document.querySelector("#choose");
-choose.addEventListener('click', () => {
-    const username = input.value
-    console.log(username);
-});
+choose.onclick = () => {
+    localStorage.setItem("username", username.value)
+}
 
-//==========================================================/
+if (localStorage.getItem("username") != null)
+    h2test.textContent = `Hello ${localStorage.getItem("username")} !`
