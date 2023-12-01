@@ -65,7 +65,7 @@ function click() {
 }
 
 function startAutoClicker() {
-   setInterval(click, 250);
+    setInterval(click, 250);
 }
 
 startAutoClicker();
@@ -101,6 +101,37 @@ const passToNextLvl = () => {
     xpOfPreviousLvl = temporary;
     currentXP = remainingXP;
     userLvl += 1;
+
+    // Fonction pour changer l'image en fonction du niveau
+    function changerImageSelonNiveau() {
+        const spriteChange = document.querySelector('.eggSprite');
+
+        // Vérification du niveau pour changer l'image
+        switch (true) {
+            case userLvl >= 1 && userLvl <= 10:
+                spriteChange.src = '/assets/golden-egg.png';
+                break;
+            case userLvl >= 11 && userLvl <= 20:
+                spriteChange.src = '/assets/cracked-egg.png';
+                break;
+            case userLvl >= 21 && userLvl <= 24:
+                spriteChange.src = '/assets/broken-egg.png';
+                break;
+            case userLvl >= 25 && userLvl <= 27:
+                spriteChange.src = '/assets/turtle-baby.png';
+                break;
+            case userLvl >= 26 && userLvl <= 30:
+                spriteChange.src = '/assets/turtle-adult.png';
+                break;
+            // Ajoutez d'autres cas pour chaque niveau si nécessaire
+            default:
+                spriteChange.src = '/assets/turtle-adult.png'; // Image par défaut si le niveau n'est pas géré
+                break;
+        }
+    }
+
+    // Appel de la fonction pour changer l'image en fonction du niveau actuel
+    changerImageSelonNiveau();
 }
 
 /* Calcule en prévision du prochain niveau grâce à la suite 
