@@ -25,7 +25,7 @@ buttons.forEach(button => {
 });
 
 
-const form = document.querySelector("#form");
+/* const form = document.querySelector("#form");
 const username = document.querySelector("#username");
 
 //permets de ne pas rafraichir la page
@@ -37,12 +37,12 @@ const username = document.querySelector("#username");
 
 // utilisation du local storage pour stocker le nom du joueur //
 
-choose.onclick = () => {
+   choose.onclick = () => {
     localStorage.setItem("username", username.value)
 }
 
 if (localStorage.getItem("username") != null)
-    h2test.textContent = `Hello ${localStorage.getItem("username")} !`
+    h2test.textContent = `Hello ${localStorage.getItem("username")} !` */
 
 /********************************/
 /********* Clicks counter *******/
