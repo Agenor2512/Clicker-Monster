@@ -13,37 +13,6 @@ let xpOfCurrentLvl = 10;
 let xpOfPreviousLvl = 10;
 let userLvl = 1;
 
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-
-        buttons.forEach(button => {
-            button.classList.remove("selected");
-        });
-
-        button.classList.add("selected");
-    });
-});
-
-
-/* const form = document.querySelector("#form");
-const username = document.querySelector("#username");
-
-//permets de ne pas rafraichir la page
-
-// form.onsubmit = function (event) {
-//     console.log("Hello");
-// }
-//utilisation .addEventListener au click ouvrir l'index.html
-
-// utilisation du local storage pour stocker le nom du joueur //
-
-   choose.onclick = () => {
-    localStorage.setItem("username", username.value)
-}
-
-if (localStorage.getItem("username") != null)
-    h2test.textContent = `Hello ${localStorage.getItem("username")} !` */
-
 /********************************/
 /********* Clicks counter *******/
 /********************************/
@@ -88,7 +57,7 @@ const increaseXP = (value) => {
     displayXP();
 }
 
-/* Décrit le passage au niveau suivant 
+/* Décrit le passage au niveau suivant et l'évolution 
    Remaining XP permet "d'arrondir" l'XP pour qu'il corresponde à l'XP dont 
    il y a besoin pour passer le niveau courant 
    -> temporary est une variable temporaire qui permet de conserver le niveau courant
@@ -102,36 +71,36 @@ const passToNextLvl = () => {
     currentXP = remainingXP;
     userLvl += 1;
 
-    // Fonction pour changer l'image en fonction du niveau
-    function changerImageSelonNiveau() {
-        const spriteChange = document.querySelector('.eggSprite');
-
-        // Vérification du niveau pour changer l'image
-        switch (true) {
-            case userLvl >= 1 && userLvl <= 10:
-                spriteChange.src = '/assets/golden-egg.png';
-                break;
-            case userLvl >= 11 && userLvl <= 20:
-                spriteChange.src = '/assets/cracked-egg.png';
-                break;
-            case userLvl >= 21 && userLvl <= 24:
-                spriteChange.src = '/assets/broken-egg.png';
-                break;
-            case userLvl >= 25 && userLvl <= 27:
-                spriteChange.src = '/assets/turtle-baby.png';
-                break;
-            case userLvl >= 26 && userLvl <= 30:
-                spriteChange.src = '/assets/turtle-adult.png';
-                break;
-            // Ajoutez d'autres cas pour chaque niveau si nécessaire
-            default:
-                spriteChange.src = '/assets/turtle-adult.png'; // Image par défaut si le niveau n'est pas géré
-                break;
-        }
-    }
-
     // Appel de la fonction pour changer l'image en fonction du niveau actuel
     changerImageSelonNiveau();
+}
+
+// Fonction pour changer l'image en fonction du niveau
+const changerImageSelonNiveau = () => {
+    const spriteChange = document.querySelector('.eggSprite');
+
+    // Vérification du niveau pour changer l'image
+    switch (true) {
+        case userLvl >= 1 && userLvl <= 10:
+            spriteChange.src = '/assets/golden-egg.png';
+            break;
+        case userLvl >= 11 && userLvl <= 20:
+            spriteChange.src = '/assets/cracked-egg.png';
+            break;
+        case userLvl >= 21 && userLvl <= 24:
+            spriteChange.src = '/assets/broken-egg.png';
+            break;
+        case userLvl >= 25 && userLvl <= 27:
+            spriteChange.src = '/assets/turtle-baby.png';
+            break;
+        case userLvl >= 26 && userLvl <= 30:
+            spriteChange.src = '/assets/turtle-adult.png';
+            break;
+        // Ajoutez d'autres cas pour chaque niveau si nécessaire
+        default:
+            spriteChange.src = '/assets/turtle-adult.png'; // Image par défaut si le niveau n'est pas géré
+            break;
+    }
 }
 
 /* Calcule en prévision du prochain niveau grâce à la suite 
