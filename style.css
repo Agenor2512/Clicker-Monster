@@ -282,3 +282,55 @@ image {
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     background-color: var(--darkYellow);
 }
+
+
+/* Player page */
+
+.score-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1.5rem;
+}
+
+.points {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--textFont);
+    width: 10rem;
+    background-color: var(--darkBlue);
+    color: rgb(255, 255, 255, 0.6);
+}
+
+.score-title {
+    justify-content: center;
+    margin-bottom: 0%;
+    font-size: 1rem;
+}
+
+.total-points {
+    justify-content: left;
+}
+
+.bonus-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1.25rem 2rem;
+    font-family: var(--textFont);
+    padding-top: 4rem;
+}
+
+.bonus-icon {
+    background-color: var(--darkYellow);
+    color: #FFFFFF;
+    padding: 1rem;
+}
+
+.bonus-name {
+    display: flex;
+    align-items: center;
+    color: var(--lightBrown);
+    font-weight: 600;
+    width: 4rem;
+
+}
