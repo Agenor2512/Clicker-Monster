@@ -1,5 +1,49 @@
 const buttons = document.querySelectorAll("button");
-const eggSprite = document.querySelector(".eggSprite")
+const eggSprite = document.querySelector(".eggSprite");
+const username = "Agenor";
+const nextButton = document.querySelector("#next");
+const tutoText = document.querySelector("#instructions");
+
+const instructions = [
+    {
+        message : `Welcome in Clicker Monster ${username} ! 
+        I'm Mister Tuto and I'm here to teach you 
+        the rules !`,
+    },
+
+    {
+        message : `You know for sure that this game consists in 
+        clicking on an egg and earn some XP to pass levels ! Maybe
+        you'll discover something interesting in the egg ?`,
+
+    },
+
+    {
+        message : `Now we are clear on your goal in this game, let's talk about
+        how to play and how to move on the site ! See, here it's the Player button, allow you to
+        access to your profile and others informations !`,
+    
+        target : document.querySelector("#player"),
+    },
+
+    {
+        message : `In Stats you can see... I let you guess. Yeah, your statistics !`,
+
+        target : document.querySelector("#statistics"),
+    },
+    
+    {
+        message : `And the star of this show... The Home page ! You'll find your new
+        creature here, even if it's not really yet a creature... You just have to click 
+        to rectify it !`,
+
+        target : document.querySelector("#home"),
+    },
+    
+    {
+        message : `Good game ${username} !`,    
+    },
+]
 
 let clicksCounter = 0;
 let autoClicksCounter = 1;
@@ -17,12 +61,28 @@ let userLvl = 1;
 /********* Clicks counter *******/
 /********************************/
 
-eggSprite.addEventListener('click', function () {
-    clicksCounter++;
-    totalClicksCounter++;
-    totalClicksCounter += autoClicksCounter;
-    increaseXP(1);
-});
+// Vérifie si l'oeuf est affiché sur la page courante
+// Sous-entends que l'on se trouve sur la page Home
+if (eggSprite) {
+    eggSprite.addEventListener('click', function () {
+        clicksCounter++;
+        totalClicksCounter++;
+        totalClicksCounter += autoClicksCounter;
+        increaseXP(1);
+    });
+
+    startAutoClicker();
+
+    // Animation au clic du sprite
+    eggSprite.addEventListener("click", function () {
+        eggSprite.classList.add("clicked");
+
+        // Retirez la classe 'clicked' après un certain délai pour permettre la répétition de l'animation
+        setTimeout(function () {
+            eggSprite.classList.remove("clicked");
+        }, 300); // Durée de l'animation en millisecondes (0.3s dans cet exemple)
+    });
+}
 
 /********************************/
 /********* Auto-clicker *******/
@@ -36,8 +96,6 @@ function click() {
 function startAutoClicker() {
     setInterval(click, 250);
 }
-
-startAutoClicker();
 
 /********************************/
 /********* Progress Bar *********/
@@ -132,13 +190,38 @@ const displayXP = () => {
     xpText.textContent = `${currentXP}/${xpOfCurrentLvl}XP`;
 }
 
-// Animation au clic du sprite
-document.querySelector(".eggSprite").addEventListener("click", function () {
-    const bouton = this;
-    bouton.classList.add("clicked");
+/*******************************/
+/********* MisterTuto **********/
+/*******************************/
 
-    // Retirez la classe 'clicked' après un certain délai pour permettre la répétition de l'animation
-    setTimeout(function () {
-        bouton.classList.remove("clicked");
-    }, 300); // Durée de l'animation en millisecondes (0.3s dans cet exemple)
-});
+tutoText.textContent = instructions.shift().message;
+
+const toggleTutoHand = (target) => {
+    const tutoHand = document.querySelector("#tuto-hand");
+    tutoHand.style.visibility = "hidden";
+
+    if (target) {
+        const topPosition = target.offsetTop - tutoHand.offsetHeight - 16;
+        const leftPosition = target.offsetLeft + (target.offsetWidth/2) - (tutoHand.offsetWidth/2);
+
+        tutoHand.style.top = `${topPosition}px`;
+        tutoHand.style.left = `${leftPosition}px`;
+        tutoHand.style.visibility = "visible"; 
+    }
+} 
+
+const handleTutoButtonClicks = () => {
+
+    if (instructions.length > 0) {
+        
+        const currentInstruction = instructions.shift();
+        tutoText.textContent = currentInstruction.message;
+        
+        toggleTutoHand(currentInstruction.target);
+
+    } else {
+        nextButton.innerHTML = "<a href='index.html'>Finish</a>";
+    }
+}
+
+nextButton.addEventListener('click', handleTutoButtonClicks);
