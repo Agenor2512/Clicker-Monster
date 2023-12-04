@@ -17,12 +17,28 @@ let userLvl = 1;
 /********* Clicks counter *******/
 /********************************/
 
-eggSprite.addEventListener('click', function () {
-    clicksCounter++;
-    totalClicksCounter++;
-    totalClicksCounter += autoClicksCounter;
-    increaseXP(1);
+if (eggSprite) {
+    eggSprite.addEventListener('click', function () {
+        clicksCounter++;
+        totalClicksCounter++;
+        totalClicksCounter += autoClicksCounter;
+        increaseXP(1);
+    });
+
+    startAutoClicker();
+
+    // Animation au clic du sprite
+    eggSprite.addEventListener("click", function () {
+    const bouton = this;
+    bouton.classList.add("clicked");
+
+    // Retirez la classe 'clicked' après un certain délai pour permettre la répétition de l'animation
+    setTimeout(function () {
+        bouton.classList.remove("clicked");
+    }, 300); // Durée de l'animation en millisecondes (0.3s dans cet exemple)
 });
+}
+
 
 /********************************/
 /********* Auto-clicker *******/
@@ -36,8 +52,6 @@ function click() {
 function startAutoClicker() {
     setInterval(click, 250);
 }
-
-startAutoClicker();
 
 /********************************/
 /********* Progress Bar *********/
@@ -131,14 +145,3 @@ const displayXP = () => {
     const xpText = document.querySelector('#xp-text');
     xpText.textContent = `${currentXP}/${xpOfCurrentLvl}XP`;
 }
-
-// Animation au clic du sprite
-document.querySelector(".eggSprite").addEventListener("click", function () {
-    const bouton = this;
-    bouton.classList.add("clicked");
-
-    // Retirez la classe 'clicked' après un certain délai pour permettre la répétition de l'animation
-    setTimeout(function () {
-        bouton.classList.remove("clicked");
-    }, 300); // Durée de l'animation en millisecondes (0.3s dans cet exemple)
-});
