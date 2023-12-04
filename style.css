@@ -38,6 +38,8 @@ body {
   background-size: cover;
 }
 
+/* Header part */
+
 header {
   display: flex;
   width: 100%;
@@ -70,6 +72,94 @@ h1 {
 header nav.desktop-navigation {
   display: none;
 }
+
+/* Tuto part */
+
+main.tuto {
+    margin-top: 0;
+}
+
+#dialog-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    margin-top: 3rem;
+}
+
+#tuto-bubble {
+    display: block;
+    margin-left: 2rem;
+    width: 100%;
+    height: auto;
+}
+
+#instructions-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%,-140%);
+    text-align: center;
+}
+
+#instructions {
+    margin: 0;
+    font-size: 1rem;
+    font-family: var(--textFont);
+    color: var(--darkBrown);
+    animation: anim-lineUp 2s;
+}
+
+@keyframes anim-lineUp {
+    0% {
+      opacity: 0;
+      transform: translateY(80%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+ #next {
+    margin-left: 8rem;
+    border: 0;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0);
+    font-weight: bold;
+    font-size: 1.5rem;
+ }
+
+@keyframes tutoHandAnimation {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-20px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+#tuto-hand {
+    position: absolute;
+    visibility: hidden;
+    animation: tutoHandAnimation 1s infinite;
+}
+
+#mister-tuto {
+    margin-top: 3rem;
+}
+
+/* Home part */
 
 main {
   display: flex;
@@ -138,6 +228,8 @@ main #foreground-bar {
   animation-name: eggSpriteAnimation;
   animation-duration: 0.2s;
 }
+
+/* Avatar and User name choice part */
 
 .avatar {
   width: 100%;
