@@ -1,336 +1,325 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Roboto&display=swap');
 
 :root {
-    --lightYellow: #F8DF78;
-    --midYellow: #FFD764;
-    --darkYellow: #CCAC50;
-    --lightBlue: #B0D0EB;
-    --midBlue: #86B9E1;
-    --darkBlue: #7699C1;
-    --lightBrown: #7C7663;
-    --midBrown: #846C45;
-    --darkBrown: #675437;
-    --lightGreen: #AADD92;
-    --midGreen: #7EA356;
-    --darkGreen: #658245;
-    --textFont: 'Roboto', sans-serif;
-    --titleFont: 'Barlow Semi Condensed', sans-serif, bolder;
-
+  --lightYellow: #f8df78;
+  --midYellow: #ffd764;
+  --darkYellow: #ccac50;
+  --lightBlue: #b0d0eb;
+  --midBlue: #86b9e1;
+  --darkBlue: #7699c1;
+  --lightBrown: #7c7663;
+  --midBrown: #846c45;
+  --darkBrown: #675437;
+  --lightGreen: #aadd92;
+  --midGreen: #7ea356;
+  --darkGreen: #658245;
+  --textFont: 'Roboto', sans-serif;
+  --titleFont: 'Barlow Semi Condensed', sans-serif, bolder;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    background-image: url("assets/background.png");
-    background-repeat: no-repeat;
-    background-position: 25% 75%;
-    background-size: cover;
+  display: flex;
+  flex-direction: column;
+  background-image: url('assets/background.png');
+  background-repeat: no-repeat;
+  background-position: 25% 75%;
+  background-size: cover;
 }
 
 header {
-    display: flex;
-    width: 100%;
-    border-bottom: 1px solid var(--darkBrown);
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--darkBrown);
 }
 
 header,
 h1 {
-    justify-content: center;
-    align-self: center;
-    font-family: var(--titleFont);
-    font-size: 2.5rem;
-    color: var(--lightYellow);
-    text-shadow:
-        -1px -1px 0 var(--darkBlue),
-        1px -1px 0 var(--darkBlue),
-        -1px 1px 0 var(--darkBlue),
-        2px 7px 7px rgba(0, 0, 0, 0.5);
-    background-color: var(--midGreen);
-    margin-top: 0%;
-    margin-bottom: 0%;
-    padding: 0.5rem;
-    padding-left: 0.7rem;
+  justify-content: center;
+  align-self: center;
+  font-family: var(--titleFont);
+  font-size: 2.5rem;
+  color: var(--lightYellow);
+  text-shadow:
+    -1px -1px 0 var(--darkBlue),
+    1px -1px 0 var(--darkBlue),
+    -1px 1px 0 var(--darkBlue),
+    2px 7px 7px rgba(0, 0, 0, 0.5);
+  background-color: var(--midGreen);
+  margin-top: 0%;
+  margin-bottom: 0%;
+  padding: 0.5rem;
+  padding-left: 0.7rem;
 }
 
 .egg-logo {
-    justify-content: left;
-    align-self: center;
-    width: 3.5rem;
-    padding-right: 1rem;
+  justify-content: left;
+  align-self: center;
+  width: 3.5rem;
+  padding-right: 1rem;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-top: 3rem;
 }
 
 main .bar-container {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: flex-end;
-    width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
 }
 
 main #xp-text {
-    align-self: flex-end;
-    margin-right: 6.2rem;
-    margin-bottom: 0;
-    font-family: var(--textFont);
-    color: white;
+  align-self: flex-end;
+  margin-right: 6.2rem;
+  margin-bottom: 0;
+  font-family: var(--textFont);
+  color: white;
 }
 
 main #background-bar {
-    width: 50%;
-    height: 15px;
-    border-radius: 12px;
-    background-color: rgba(169, 169, 169, 0.8);
+  width: 50%;
+  height: 15px;
+  border-radius: 12px;
+  background-color: rgba(169, 169, 169, 0.8);
 }
 
 main #foreground-bar {
-    width: 0;
-    height: 15px;
-    border-radius: 12px;
-    background-color: green;
+  width: 0;
+  height: 15px;
+  border-radius: 12px;
+  background-color: green;
 }
 
 .eggSprite {
-    display: flex;
-    justify-self: center;
-    align-self: center;
-    width: auto;
-    height: 25rem;
-    padding-top: 4rem;
-    transition: transform 0.3s ease;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  width: auto;
+  height: 25rem;
+  padding-top: 4rem;
+  transition: transform 0.3s ease;
 }
 
 @keyframes eggSpriteAnimation {
-    0% {
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+  }
 
-    50% {
-        transform: scale(1.2);
-    }
+  50% {
+    transform: scale(1.2);
+  }
 
-    100% {
-        transform: scale(1);
-
-    }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .eggSprite.clicked {
-    animation-name: eggSpriteAnimation;
-    animation-duration: 0.2s;
+  animation-name: eggSpriteAnimation;
+  animation-duration: 0.2s;
 }
 
 .avatar {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .image {
-    margin: 0 10px;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    overflow: hidden;
-    width: 100px;
-    height: 100px;
+  margin: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
 }
 
 .image img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 100%;
-    max-height: 100%;
-    clip: rect(0, 100px, 70px, 0);
-
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  clip: rect(0, 100px, 70px, 0);
 }
 
-input[type="radio"] {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-
+input[type='radio'] {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 h2 {
-    text-align: center;
-    display: block;
+  text-align: center;
+  display: block;
 }
 
-
 footer ul {
-    display: flex;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 footer button {
-    flex: 3 0 auto;
-    height: 3.2rem;
-    border: 0.2px solid white;
-    border-radius: 5px;
-    border-bottom: 0px;
-    background-color: var(--midGreen);
-    padding: 0;
+  flex: 3 0 auto;
+  height: 3.2rem;
+  border: 0.2px solid white;
+  border-radius: 5px;
+  border-bottom: 0px;
+  background-color: var(--midGreen);
+  padding: 0;
 }
 
 footer button.selected {
-    flex: 4 0 auto;
-    background-color: var(--darkGreen);
+  flex: 4 0 auto;
+  background-color: var(--darkGreen);
 }
 
 footer a {
-    font-family: var(--textFont);
-    text-decoration: none;
-    color: white;
+  font-family: var(--textFont);
+  text-decoration: none;
+  color: white;
 }
 
 main,
 form {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: .7rem;
-    padding: 0.4rem;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.4rem;
 }
 
-input[type="text"] {
-    padding: 0.2rem;
-    border-radius: 15px;
-    border-color: #7EA356;
+input[type='text'] {
+  padding: 0.2rem;
+  border-radius: 15px;
+  border-color: #7ea356;
 }
-
 
 #choose {
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
 }
 
 #choose,
 image {
-    padding: 0;
+  padding: 0;
 }
 
 /*Stat page */
 
 .stat-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 1.25rem 2.5rem;
-    padding-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1.25rem 2.5rem;
+  padding-top: 2.5rem;
 }
 
-
 .unknow {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.6rem;
-    background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .nothing {
-    display: flex;
-    align-items: center;
-    background-color: none;
-    color: var(--lightYellow);
-    font-family: var(--textFont);
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-    border-right: 1px solid var(--lightYellow);
-    height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: none;
+  color: var(--lightYellow);
+  font-family: var(--textFont);
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  border-right: 1px solid var(--lightYellow);
+  height: 100%;
 }
 
 .item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.6rem;
-    padding-right: 0.5rem;
-    font-family: var(--textFont);
-    color: var(--midBrown);
-    background-color: var(--lightYellow);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+  padding-right: 0.5rem;
+  font-family: var(--textFont);
+  color: var(--midBrown);
+  background-color: var(--lightYellow);
 }
 
 .trophy {
-    height: 3.5rem;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    background-color: var(--darkYellow);
+  height: 3.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: var(--darkYellow);
 }
-
 
 /* Player page */
 
 .score-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1.5rem;
 }
 
 .points {
-    display: flex;
-    flex-direction: column;
-    font-family: var(--textFont);
-    width: 10rem;
-    background-color: var(--darkBlue);
-    color: rgb(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--textFont);
+  width: 10rem;
+  background-color: var(--darkBlue);
+  color: rgb(255, 255, 255, 0.6);
 }
 
 .score-title {
-    justify-content: center;
-    margin-bottom: 0%;
-    font-size: 1rem;
+  justify-content: center;
+  margin-bottom: 0%;
+  font-size: 1rem;
 }
 
 .total-points {
-    justify-content: left;
+  justify-content: left;
 }
 
 .bonus-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 1.25rem 2rem;
-    font-family: var(--textFont);
-    padding-top: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1.25rem 2rem;
+  font-family: var(--textFont);
+  padding-top: 4rem;
 }
 
 .bonus-icon {
-    background-color: var(--darkYellow);
-    color: #FFFFFF;
-    padding: 1rem;
+  background-color: var(--darkYellow);
+  color: #ffffff;
+  padding: 1rem;
 }
 
 .bonus-name {
-    display: flex;
-    align-items: center;
-    color: var(--lightBrown);
-    font-weight: 600;
-    width: 4rem;
-
+  display: flex;
+  align-items: center;
+  color: var(--lightBrown);
+  font-weight: 600;
+  width: 4rem;
 }

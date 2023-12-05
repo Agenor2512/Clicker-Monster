@@ -1,0 +1,16 @@
+{
+  "name": "clicker-monster",
+  "version": "1.0.0",
+  "description": "This is a school project in team. It's a \"Cookie clicker\" like, you can clic on an egg and discover something !",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.0"
+  }
+}
