@@ -1,9 +1,6 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-plusplus */
 const eggSprite = document.querySelector('.eggSprite');
-const header = document.querySelector('header');
-const windowWidth = window.innerWidth || document.documentElement.clientWidth
-                    || document.body.clientWidth;
 
 // eslint-disable-next-line no-unused-vars
 let clicksCounter = 0;
@@ -175,12 +172,3 @@ document.addEventListener('click', () => {
     chooseButton.innerHTML = "<a href='tuto.html'>go to tuto</a>";
   }
 });
-
-if (windowWidth > 390) {
-  header.classList.remove('default-style-class');
-  header.classList.add('desktop-version');
-  header.innerHTML = '<img src="assets/egg-logo.png" alt="egg-logo" class="egg-logo" /><h1>Clicker Monster</h1><nav><ul><li id="statistics"><a href="#">Statistics</a></li><li id="home"><a href="#">Home</a></li><li><a href="#">Player</a></li></ul></nav>';
-} else {
-  header.classList.remove('desktop-version');
-  header.classList.add('default-style-class');
-}

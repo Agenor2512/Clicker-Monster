@@ -67,6 +67,10 @@ h1 {
   padding-left: 1rem;
 }
 
+header nav.desktop-navigation {
+  display: none;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -393,37 +397,37 @@ h2 {
     margin-left: 2rem;
   }
 
-  header  nav {
+  header nav.desktop-navigation {
     display: flex;
     flex-direction: row-reverse;
     width: 100%;
   }
 
-  header nav ul {
+  header nav.desktop-navigation ul {
     padding-right: 3rem;
   }
   
-  header nav ul li {
+  header nav.desktop-navigation > ul li {
     display: inline-block;
     padding: 0.5rem;
     height: 100%;
   }
 
-  header nav ul li:hover {
+  header nav.desktop-navigation > ul li:hover {
     border-radius: 5px;
     background-color: var(--darkGreen);
   }
-  header nav ul li a {
+  header nav.desktop-navigation > ul li a {
     height: 100%;
     font-family: var(--textFont);
     text-decoration: none;
     color: white;
   }
 
-  #statistics, #home {
+  header nav.desktop-navigation ul #statistics, #home {
     border-right: 1px solid var(--lightBrown);
   }
-
+  
   .egg-logo {
     margin-left: 0.8rem;
   }
@@ -441,7 +445,7 @@ h2 {
     width: 20%;
   }
 
-  footer {
+  footer nav.mobile-navigation {
     display: none;
   }
 }
