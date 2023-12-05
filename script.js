@@ -31,16 +31,28 @@ const changerImageSelonNiveau = () => {
       break;
     case userLvl >= 21 && userLvl <= 24:
       spriteChange.src = '/assets/broken-egg.png';
+      spriteChange.style.height = '17rem';
+      spriteChange.style.width = '15rem';
+      spriteChange.style.marginTop = '4rem';
       break;
     case userLvl >= 25 && userLvl <= 27:
       spriteChange.src = '/assets/turtle-baby.png';
+      spriteChange.style.height = '18rem';
+      spriteChange.style.width = '15rem';
+      spriteChange.style.marginTop = '4rem';
       break;
     case userLvl >= 26 && userLvl <= 30:
       spriteChange.src = '/assets/turtle-adult.png';
+      spriteChange.style.height = '19rem';
+      spriteChange.style.width = '17rem';
+      spriteChange.style.marginTop = '4rem';
       break;
     // Ajoutez d'autres cas pour chaque niveau si nécessaire
     default:
       spriteChange.src = '/assets/turtle-adult.png'; // Image par défaut si le niveau n'est pas géré
+      spriteChange.style.height = '19rem';
+      spriteChange.style.width = '17rem';
+      spriteChange.style.marginTop = '4rem';
       break;
   }
 };
