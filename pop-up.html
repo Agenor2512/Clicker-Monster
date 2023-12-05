@@ -1,29 +1,40 @@
-<h2>Choose your avatar</h2>
-<div class="avatar">
-  <div class="image">
-    <img src="assets/avatar3.png" alt="Avatar 3" class="avatar3" />
-    <input type="radio" id="avatar1" name="avatar" value="avatar1" />
-  </div>
+<!DOCTYPE html>
+<html lang="en">
 
-  <div class="image">
-    <img src="assets/avatar2.png" alt="Avatar 2" class="avatar2" />
-    <input type="radio" id="avatar2" name="avatar" value="avatar2" />
-  </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Clicker-Monster</title>
+</head>
 
-  <div class="image">
-    <img src="assets/avatar1.png" alt="avatar1" class="avatar1" />
-    <input type="radio" id="avatar3" name="avatar" value="avatar3" />
-  </div>
-</div>
+<body>
+    <!-- Le pop-up -->
 
-<h2 id="h2test">Hello</h2>
-<form id="form">
-  <input
-    type="text"
-    name="username"
-    placeholder="Enter your player name..."
-    id="username"
-    value=""
-  />
-</form>
-<button id="choose"><img src="assets/choose-button.png" /></button>
+    <div id="popup" class="popup">
+        <div class="pop-up">
+            <h2>Choose your avatar</h2>
+            <div class="avatar">
+                <div class="image">
+                    <img src="assets/avatar3.png" alt="Avatar 3" class="avatar3">
+                    <input type="radio" id="avatar1" name="avatar" value="avatar1">
+                </div>
+
+                <div class="image">
+                    <img src="assets/avatar2.png" alt="Avatar 2" class="avatar2">
+                    <input type="radio" id="avatar2" name="avatar" value="avatar2">
+                </div>
+
+                <div class="image">
+                    <img src="assets/avatar1.png" alt="avatar1" class="avatar1">
+                    <input type="radio" id="avatar3" name="avatar" value="avatar3">
+                </div>
+            </div>
+            <form id="form">
+                <input type="text" name="username" placeholder="Enter your player name..." id="username" value="" />
+                <button class="chooseButton">CHOOSE</button>
+            </form>
+            <script src="script.js"></script>
+</body>
+
+</html>
