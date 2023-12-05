@@ -232,8 +232,8 @@ image {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 1.25rem 2.5rem;
-  padding-top: 2.5rem;
+  gap: 1.25rem 1.5rem;
+  padding-top: 2rem;
 }
 
 .unknow {
@@ -271,6 +271,12 @@ image {
   height: 3.5rem;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   background-color: var(--darkYellow);
+}
+
+.graph-stat {
+  margin-top: 5rem;
+  display: flex;
+  height: 14rem;
 }
 
 /* Player page */
