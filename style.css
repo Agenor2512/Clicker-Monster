@@ -245,19 +245,21 @@ image {
   flex-direction: row;
   align-items: center;
   gap: 0.6rem;
+  border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
 .nothing {
   display: flex;
   align-items: center;
+  height: 100%;
   background-color: none;
   color: var(--lightYellow);
   font-family: var(--textFont);
   padding-left: 1.2rem;
   padding-right: 1.2rem;
+  border-radius: 5px;
   border-right: 1px solid var(--lightYellow);
-  height: 100%;
 }
 
 .item {
@@ -266,6 +268,7 @@ image {
   align-items: center;
   gap: 0.6rem;
   padding-right: 0.5rem;
+  border-radius: 5px;
   font-family: var(--textFont);
   color: var(--midBrown);
   background-color: var(--lightYellow);
@@ -274,6 +277,7 @@ image {
 .trophy {
   height: 3.5rem;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 5px;
   background-color: var(--darkYellow);
 }
 
@@ -281,6 +285,7 @@ image {
   margin-top: 5rem;
   display: flex;
   height: 14rem;
+  border-radius: 5px;
 }
 
 /* Player page */
@@ -393,6 +398,9 @@ h2 {
 }
 
 @media screen and (min-width: 600px) {
+
+  /* Nav part */
+
   header {
     flex-direction: row;
   }
@@ -433,6 +441,8 @@ h2 {
   header nav.desktop-navigation ul #statistics, #home {
     border-right: 1px solid var(--lightBrown);
   }
+
+  /* Home part */
   
   .egg-logo {
     margin-left: 0.8rem;
@@ -446,11 +456,52 @@ h2 {
     color: white;
   }
 
-
   main #background-bar {
     width: 20%;
   }
 
+  /* Stat part */
+
+  .stat-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 40%;
+  }
+
+  .unknow {
+    order: 2;
+  }
+
+  .unknow_background {
+    width: 7rem;
+  }
+
+  .item:hover, .unknow:hover, .graph-stat:hover {
+    animation: trophyItemAnimation 2s infinite;
+  }
+
+  @keyframes trophyItemAnimation {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(1.2);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .graph-stat {
+    height: 25rem;
+  }
+
+  /* Nav mobile part */
+  /* To not display the mobile navigation in desktop mode */
   footer nav.mobile-navigation {
     display: none;
   }
