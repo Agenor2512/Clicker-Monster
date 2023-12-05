@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-plusplus */
 const eggSprite = document.querySelector('.eggSprite');
 
@@ -131,7 +132,7 @@ if (eggSprite) {
 
   // Animation au clic du sprite
   eggSprite.addEventListener('click', () => {
-    const bouton = this;
+    const bouton = document.querySelector('.eggSprite');
     bouton.classList.add('clicked');
 
     // Retirez la classe 'clicked' après un certain délai
