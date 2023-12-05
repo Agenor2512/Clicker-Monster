@@ -94,14 +94,16 @@ main #background-bar {
   width: 50%;
   height: 15px;
   border-radius: 12px;
-  background-color: rgba(169, 169, 169, 0.8);
+  background-color: var(--lightBrown);
+  opacity: 0.8;
+  box-shadow: 2px 2px var(--midBrown);
 }
 
 main #foreground-bar {
   width: 0;
   height: 15px;
   border-radius: 12px;
-  background-color: green;
+  background-color: var(--lightGreen);
 }
 
 .eggSprite {
