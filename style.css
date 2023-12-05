@@ -382,6 +382,66 @@ h2 {
   color: whitesmoke;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 600px) {
+  header {
+    flex-direction: row;
+  }
 
+  header h1 {
+    text-align: left;
+    font-size: 1.8rem;
+    margin-left: 2rem;
+  }
+
+  header  nav {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+  }
+
+  header nav ul {
+    padding-right: 3rem;
+  }
+  
+  header nav ul li {
+    display: inline-block;
+    padding: 0.5rem;
+    height: 100%;
+  }
+
+  header nav ul li:hover {
+    border-radius: 5px;
+    background-color: var(--darkGreen);
+  }
+  header nav ul li a {
+    height: 100%;
+    font-family: var(--textFont);
+    text-decoration: none;
+    color: white;
+  }
+
+  #statistics, #home {
+    border-right: 1px solid var(--lightBrown);
+  }
+
+  .egg-logo {
+    margin-left: 0.8rem;
+  }
+
+  main #xp-text {
+    align-self: center;
+    margin-right: 0rem;
+    margin-bottom: 0;
+    font-family: var(--textFont);
+    color: white;
+  }
+
+
+  main #background-bar {
+    width: 20%;
+  }
+
+  footer {
+    display: none;
+  }
 }
