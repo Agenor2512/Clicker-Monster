@@ -42,32 +42,29 @@ header {
   display: flex;
   width: 100%;
   border-bottom: 1px solid var(--darkBrown);
+  align-items: center;
+  background-color: var(--midGreen);
 }
 
-header,
 h1 {
-  justify-content: center;
-  align-self: center;
   font-family: var(--titleFont);
   font-size: 2.5rem;
+  text-align: center;
   color: var(--lightYellow);
   text-shadow:
     -1px -1px 0 var(--darkBlue),
     1px -1px 0 var(--darkBlue),
     -1px 1px 0 var(--darkBlue),
     2px 7px 7px rgba(0, 0, 0, 0.5);
-  background-color: var(--midGreen);
-  margin-top: 0%;
-  margin-bottom: 0%;
+  margin: 0;
   padding: 0.5rem;
-  padding-left: 0.7rem;
+  padding-left: 0.5rem;
+  width : 80%;
 }
 
 .egg-logo {
-  justify-content: left;
-  align-self: center;
-  width: 3.5rem;
-  padding-right: 1rem;
+  height: 3rem;
+  padding-left: 1rem;
 }
 
 main {
