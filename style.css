@@ -381,3 +381,7 @@ h2 {
   font-family: var(--textFont);
   color: whitesmoke;
 }
+
+@media screen and (min-width: 400px) {
+
+}
