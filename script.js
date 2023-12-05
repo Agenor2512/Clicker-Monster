@@ -142,3 +142,21 @@ if (eggSprite) {
     }, 300); // Durée de l'animation en millisecondes (0.3s dans cet exemple)
   });
 }
+
+/* Pop-up */
+
+// Sélection du bouton de fermeture de la popup
+const chooseButton = document.getElementById('.chooseButton');
+// Ajout d'un écouteur d'événement au clic sur le bouton de fermeture
+document.addEventListener('click', () => {
+  // Sélection de l'input d'ID 'username'
+  const usernameInput = document.getElementById('#username');
+  // Obtention de la valeur de l'input sans les espaces avant et après
+  const usernameValue = usernameInput.value.trim();
+
+  // Vérification si la valeur de l'input 'username' n'est pas vide
+  if (usernameValue !== '') {
+    localStorage.usernameValue();
+    chooseButton.innerHTML = "<a href='tuto.html'>go to tuto</a>";
+  }
+});
