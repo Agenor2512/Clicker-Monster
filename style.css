@@ -285,19 +285,58 @@ image {
 
 /* Player page */
 
+.playerInfo {
+  display: flex;
+  margin-bottom: 4rem;
+  margin-top: 1rem;
+  
+}
+
+.avatarChosen {
+  width: 6rem;
+  align-self: center;
+  text-align: center;
+  margin-right: 2rem;
+}
+
+.usernameChosen {
+  width: 8rem;
+  text-align: center;
+  background-color: var(--midBlue);
+  font-family: var(--textFont);
+  color: rgb(255, 255, 255);
+  border-radius: 15px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-right: 2rem;
+}
+
+.level {
+  width: 3rem;
+  text-align: center;
+  background-color: var(--lightYellow);
+  font-family: var(--textFont);
+  color: var(--darkBrown);
+  border-radius: 150px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .score-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 1.5rem;
+  column-gap: 1rem;
+  margin-bottom: 4rem;
 }
 
 .points {
   display: flex;
   flex-direction: column;
   font-family: var(--textFont);
-  width: 10rem;
+  width: 7rem;
   background-color: var(--darkBlue);
   color: rgb(255, 255, 255, 0.6);
+  border-radius: 10px;
 }
 
 .score-title {
@@ -308,6 +347,7 @@ image {
 
 .total-points {
   justify-content: left;
+  flex-wrap: wrap;
 }
 
 .bonus-container {
@@ -316,11 +356,11 @@ image {
   grid-template-rows: 1fr 1fr 1fr;
   gap: 1.25rem 2rem;
   font-family: var(--textFont);
-  padding-top: 4rem;
 }
 
 .bonus-icon {
   background-color: var(--darkYellow);
+  border-radius: 10px;
   color: #ffffff;
   padding: 1rem;
 }
