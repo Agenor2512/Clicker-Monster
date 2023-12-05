@@ -4,7 +4,7 @@ const eggSprite = document.querySelector('.eggSprite');
 
 // eslint-disable-next-line no-unused-vars
 let clicksCounter = 0;
-let autoClicksCounter = 1;
+let autoClicksCounter = 0.5;
 let totalClicksCounter = 0;
 let currentXP = 0;
 
@@ -89,7 +89,7 @@ const updateProgressBar = () => {
    -> xpOfCurrentLvl correspond à l'XP qu'il faut atteindre */
 const displayXP = () => {
   const xpText = document.querySelector('#xp-text');
-  xpText.textContent = `${currentXP}/${xpOfCurrentLvl}XP`;
+  xpText.textContent = `${Math.round(currentXP)}/${xpOfCurrentLvl}XP`;
 };
 
 /* Permet d'ajouter l'XP à l'XP courant
