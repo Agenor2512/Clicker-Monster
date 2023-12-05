@@ -287,16 +287,16 @@ image {
 
 .playerInfo {
   display: flex;
-  margin-bottom: 4rem;
-  margin-top: 1rem;
-  
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .avatarChosen {
   width: 6rem;
   align-self: center;
   text-align: center;
-  margin-right: 2rem;
 }
 
 .usernameChosen {
@@ -308,7 +308,6 @@ image {
   border-radius: 15px;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  margin-right: 2rem;
 }
 
 .level {
@@ -354,15 +353,18 @@ image {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 1.25rem 2rem;
+  gap: 1.5rem 2rem;
   font-family: var(--textFont);
 }
 
 .bonus-icon {
   background-color: var(--darkYellow);
   border-radius: 10px;
-  color: #ffffff;
-  padding: 1rem;
+}
+
+.star-bonus {
+  height: 4rem;
+  padding: 0.5rem;
 }
 
 .bonus-name {
