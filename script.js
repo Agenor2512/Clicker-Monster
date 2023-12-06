@@ -219,7 +219,7 @@ document.addEventListener('click', () => {
   }
 });
 
-localstorage/player
+// localstorage/player
 function displayUsername() {
   const storedUsername = localStorage.getItem('username');
   const usernameElement = document.querySelector('.usernameChosen');
