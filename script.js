@@ -219,6 +219,53 @@ document.addEventListener('click', () => {
   }
 });
 
+localstorage/player
+function displayUsername() {
+  const storedUsername = localStorage.getItem('username');
+  const usernameElement = document.querySelector('.usernameChosen');
+  if (storedUsername) {
+    // Affichage du nom d'utilisateur dans l'élément avec la classe 'usernameChosen'
+    usernameElement.innerText = storedUsername;
+  } else {
+    // Si aucun nom d'utilisateur n'est stocké
+    usernameElement.innerText = 'Who are u ?!';
+  }
+}
+displayUsername();
+
+// Local Storage Avatars
+
+// Fonction pour sélectionner un avatar et l'enregistrer dans le localStorage
+// eslint-disable-next-line no-unused-vars
+function selectAvatar(avatarPath) {
+  // Stockage du chemin de l'avatar sélectionné dans le localStorage
+  localStorage.setItem('selectedAvatar', avatarPath);
+}
+// selectAvatar();
+
+// Fonction pour afficher l'avatar sélectionné depuis le localStorage
+function displaySelectedAvatar() {
+  const storedAvatarPath = localStorage.getItem('selectedAvatar');
+  const selectedAvatar = document.querySelector('.selectedAvatar');
+
+  if (storedAvatarPath) {
+    // Affichage de l'avatar sélectionné dans l'élément avec la classe 'selectedAvatar'
+    selectedAvatar.innerHTML = `<img src="${storedAvatarPath}" alt="Selected Avatar">`;
+
+    // Cocher l'input correspondant à l'avatar sélectionné
+    const avatarInputs = document.querySelectorAll('input[name="avatar"]');
+    avatarInputs.forEach((input) => {
+      if (input.value === storedAvatarPath) {
+        // eslint-disable-next-line no-param-reassign
+        input.checked = true;
+      }
+    });
+  } else {
+    // Si aucun avatar n'est sélectionné
+    selectedAvatar.innerHTML = 'No avatar';
+  }
+}
+displaySelectedAvatar();
 /* MisterTuto */
 
 tutoText.textContent = instructions.shift().message;
