@@ -230,7 +230,7 @@ image {
   padding: 0;
 }
 
-/*Stat page */
+/* Stat page */
 
 .stat-container {
   display: grid;
@@ -240,24 +240,26 @@ image {
   padding-top: 2rem;
 }
 
-.unknow {
+.trophy-not-obtain-yet {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0.6rem;
+  border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.nothing {
+.interrogation-point {
   display: flex;
   align-items: center;
+  height: 100%;
   background-color: none;
   color: var(--lightYellow);
   font-family: var(--textFont);
   padding-left: 1.2rem;
   padding-right: 1.2rem;
+  border-radius: 5px;
   border-right: 1px solid var(--lightYellow);
-  height: 100%;
 }
 
 .item {
@@ -266,6 +268,7 @@ image {
   align-items: center;
   gap: 0.6rem;
   padding-right: 0.5rem;
+  border-radius: 5px;
   font-family: var(--textFont);
   color: var(--midBrown);
   background-color: var(--lightYellow);
@@ -274,6 +277,7 @@ image {
 .trophy {
   height: 3.5rem;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 5px;
   background-color: var(--darkYellow);
 }
 
@@ -281,6 +285,7 @@ image {
   margin-top: 5rem;
   display: flex;
   height: 14rem;
+  border-radius: 5px;
 }
 
 /* Player page */
@@ -449,7 +454,9 @@ input[type="radio"] {
 }
 
 @media screen and (min-width: 600px) {
-
+  
+  /* Popup part */
+  
   .popup, h2 {
     font-size: 3rem;
     margin-bottom: 6.5rem;
@@ -480,7 +487,9 @@ input[type="radio"] {
     font-size: 1.8rem;
     margin-left: 2rem;
   }
-
+  
+  /* Nav part */
+  
   header nav.desktop-navigation {
     display: flex;
     flex-direction: row-reverse;
@@ -511,6 +520,8 @@ input[type="radio"] {
   header nav.desktop-navigation ul #statistics, #home {
     border-right: 1px solid var(--lightBrown);
   }
+
+  /* Home part */
   
   .egg-logo {
     margin-left: 0.8rem;
@@ -524,11 +535,56 @@ input[type="radio"] {
     color: white;
   }
 
-
   main #background-bar {
     width: 20%;
   }
 
+  /* Stat part */
+
+  .stat-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60%;
+  }
+
+  .not-obtain-background {
+    width: 7rem;
+  }
+
+  .item:hover, .trophy-not-obtain-yet:hover, .graph-stat:hover {
+    animation: trophyItemAnimation 2s infinite;
+  }
+
+  #second-item {
+    order: -3;
+  }
+
+  #third-item {
+    order: -4;
+  }
+
+  @keyframes trophyItemAnimation {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(1.2);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .graph-stat {
+    height: 25rem;
+  }
+
+  /* Nav mobile part */
+  /* To not display the mobile navigation in desktop mode */
   footer nav.mobile-navigation {
     display: none;
   }
