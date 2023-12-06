@@ -283,6 +283,7 @@ function displaySelectedAvatar() {
   }
 }
 displaySelectedAvatar();
+
 /* MisterTuto */
 
 tutoText.textContent = instructions.shift().message;
