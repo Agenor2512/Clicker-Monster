@@ -172,3 +172,16 @@ document.addEventListener('click', () => {
     chooseButton.innerHTML = "<a href='tuto.html'>go to tuto</a>";
   }
 });
+
+function displayUsername() {
+  const storedUsername = localStorage.getItem('username');
+  const usernameElement = document.querySelector('.usernameChosen');
+  if (storedUsername) {
+    // Affichage du nom d'utilisateur dans l'élément avec la classe 'usernameChosen'
+    usernameElement.innerText = storedUsername;
+  } else {
+    // Si aucun nom d'utilisateur n'est stocké
+    usernameElement.innerText = 'Who are u ?!';
+  }
+}
+displayUsername();
