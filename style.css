@@ -285,19 +285,57 @@ image {
 
 /* Player page */
 
+.playerInfo {
+  display: flex;
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.avatarChosen {
+  width: 6rem;
+  align-self: center;
+  text-align: center;
+}
+
+.usernameChosen {
+  width: 8rem;
+  text-align: center;
+  background-color: var(--midBlue);
+  font-family: var(--textFont);
+  color: rgb(255, 255, 255);
+  border-radius: 15px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.level {
+  width: 3rem;
+  text-align: center;
+  background-color: var(--lightYellow);
+  font-family: var(--textFont);
+  color: var(--darkBrown);
+  border-radius: 150px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .score-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 1.5rem;
+  column-gap: 1rem;
+  margin-bottom: 4rem;
 }
 
 .points {
   display: flex;
   flex-direction: column;
   font-family: var(--textFont);
-  width: 10rem;
+  width: 7rem;
   background-color: var(--darkBlue);
   color: rgb(255, 255, 255, 0.6);
+  border-radius: 10px;
 }
 
 .score-title {
@@ -308,21 +346,26 @@ image {
 
 .total-points {
   justify-content: left;
+  flex-wrap: wrap;
 }
 
 .bonus-container {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 1.25rem 2rem;
   font-family: var(--textFont);
-  padding-top: 4rem;
+  border-radius: 10px;
+  background-color: rgba(248, 223, 120, 0.7);
 }
 
-.bonus-icon {
-  background-color: var(--darkYellow);
-  color: #ffffff;
-  padding: 1rem;
+#first-icon, #second-icon {
+  border-bottom: 1px solid var(--midBrown);
+}
+
+.star-bonus {
+  height: 4rem;
+  padding: 0.5rem;
+  border-radius: 10px;
 }
 
 .bonus-name {
@@ -330,7 +373,20 @@ image {
   align-items: center;
   color: var(--lightBrown);
   font-weight: 600;
-  width: 4rem;
+  width: 100%;
+}
+
+main div.bonus-name p {
+  text-align: center;
+  width: 100%;
+}
+
+#first-bonus, #second-bonus {
+  border-bottom: 1px solid var(--midBrown);
+}
+
+.bonus-icons, .bonus-name {
+  margin-top: 0.5rem;
 }
 
 /* Pop-up */
