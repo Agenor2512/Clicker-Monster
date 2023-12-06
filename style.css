@@ -72,110 +72,40 @@ h1 {
 header nav.desktop-navigation {
   display: none;
 }
+
 /* Tuto part */
 
 main.tuto {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 #dialog-container {
-    position: relative;
-    width: 100%;
-    max-width: 300px;
-    margin: auto;
-}
-
-#tuto-bubble {
-    display: block;
-    margin-left: 2rem;
-    width: 100%;
-    height: auto;
-}
-
-#instructions-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-40%,-140%);
-    text-align: center;
-}
-
-#instructions {
-    margin: 0;
-    font-size: 1rem;
-    font-family: var(--textFont);
-    color: var(--darkBrown);
-    animation: anim-lineUp 2s;
-}
-
-@keyframes anim-lineUp {
-    0% {
-      opacity: 0;
-      transform: translateY(80%);
-    }
-    20% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-      transform: translateY(0%);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0%);
-    }
-  }
-
- #next {
-    margin-left: 8rem;
-    border: 0;
-    border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0);
-    font-weight: bold;
-    font-size: 1.5rem;
- }
-
-@keyframes tutoHandAnimation {
-    0% {
-        transform: translatey(0px);
-    }
-    50% {
-        transform: translatey(-20px);
-    }
-    100% {
-        transform: translatey(0px);
-    }
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
 }
 
 #tuto-hand {
-    position: absolute;
-    visibility: hidden;
-    animation: tutoHandAnimation 1s infinite;
+  position: absolute;
+  visibility: hidden;
+  animation: tutoHandAnimation 1s infinite;
 }
 
 #mister-tuto {
-    margin-top: 3rem;
-}
-
-/* Home part */
-
-main {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    margin-top: 3rem;
+  margin-top: 3rem;
 }
 
 #tuto-bubble {
   display: block;
   width: 21rem;
-  height: 16rem;
+  height: 18rem;
 }
 
 #instructions-container {
   position: absolute;
   width: 80%;
-  margin-top: -10rem;
+  margin-top: -9rem;
   margin-left: -7rem;
   top: 48%;
   left: 50%;
@@ -190,34 +120,16 @@ main {
   animation: anim-lineUp 2s;
 }
 
-@keyframes anim-lineUp {
-    0% {
-      opacity: 0;
-      transform: translateY(80%);
-    }
-    20% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-      transform: translateY(0%);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0%);
-    }
-  }
-
  #next {
   height: 100%;
-    margin-top: 0.6rem;
-    margin-left: 8rem;
-    border: 0;
-    border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.5);
-    font-size: 1.5rem;
-    color: white;
- }
+  margin-top: 0.6rem;
+  margin-left: 8rem;
+  border: 0;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 1.5rem;
+  color: white;
+}
 
  #next a {
   text-decoration: none;
@@ -226,28 +138,36 @@ main {
   font-family: var(--textFont);
   border-radius: 10px;
   color: white;
- }
+}
+
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+    }
+}
 
 @keyframes tutoHandAnimation {
-    0% {
-        transform: translatey(0px);
-    }
-    50% {
-        transform: translatey(-20px);
-    }
-    100% {
-        transform: translatey(0px);
-    }
-}
-
-#tuto-hand {
-    position: absolute;
-    visibility: hidden;
-    animation: tutoHandAnimation 1s infinite;
-}
-
-#mister-tuto {
-    margin-top: 3rem;
+  0% {
+      transform: translatey(0px);
+  }
+  50% {
+      transform: translatey(-20px);
+  }
+  100% {
+      transform: translatey(0px);
+  }
 }
 
 /* Home part */
