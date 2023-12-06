@@ -7,6 +7,14 @@ const clicksPerMinutesParagraph = document.querySelector('.clicksPerMinute');
 const username = 'Agenor';
 const nextButton = document.querySelector('#next');
 const tutoText = document.querySelector('#instructions');
+const encouragementBubble = document.getElementById('encouragementBubble');
+const encouragementMessage = document.getElementById('encouragementMessage');
+const messages = [
+  'Click with all your might!',
+  'Wow, keep it up!',
+  'You can do it!',
+  'You are amazing!',
+];
 
 const instructions = [
   {
@@ -63,6 +71,7 @@ let currentXP = 0;
 let xpOfCurrentLvl = 10;
 let xpOfPreviousLvl = 10;
 let userLvl = 1;
+let index = 0;
 
 /* Sprite evolution */
 
@@ -168,6 +177,18 @@ const increaseXP = (value) => {
   displayXP();
 };
 
+function showNextEncouragement() {
+  encouragementMessage.textContent = messages[index];
+
+  encouragementBubble.style.display = 'block';
+
+  setTimeout(() => {
+    encouragementBubble.style.display = 'none';
+
+    index = (index + 1) % messages.length;
+  }, 3000);
+}
+
 /* Auto-clicker */
 
 function click() {
@@ -200,6 +221,10 @@ if (eggSprite) {
     totalClicksCounter++;
     totalClicksCounter += autoClicksCounter;
     increaseXP(1);
+
+    if (clicksCounter === 1) {
+      setInterval(showNextEncouragement, 6000);
+    }
   });
 
   startAutoClicker();
