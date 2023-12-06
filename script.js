@@ -1,5 +1,6 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-plusplus */
+/* eslint-disable linebreak-style */
 const eggSprite = document.querySelector('.eggSprite');
 
 const username = 'Agenor';

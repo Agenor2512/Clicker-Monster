@@ -72,7 +72,6 @@ h1 {
 header nav.desktop-navigation {
   display: none;
 }
-
 /* Tuto part */
 
 main.tuto {
@@ -84,6 +83,86 @@ main.tuto {
     width: 100%;
     max-width: 300px;
     margin: auto;
+}
+
+#tuto-bubble {
+    display: block;
+    margin-left: 2rem;
+    width: 100%;
+    height: auto;
+}
+
+#instructions-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%,-140%);
+    text-align: center;
+}
+
+#instructions {
+    margin: 0;
+    font-size: 1rem;
+    font-family: var(--textFont);
+    color: var(--darkBrown);
+    animation: anim-lineUp 2s;
+}
+
+@keyframes anim-lineUp {
+    0% {
+      opacity: 0;
+      transform: translateY(80%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+ #next {
+    margin-left: 8rem;
+    border: 0;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0);
+    font-weight: bold;
+    font-size: 1.5rem;
+ }
+
+@keyframes tutoHandAnimation {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-20px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+#tuto-hand {
+    position: absolute;
+    visibility: hidden;
+    animation: tutoHandAnimation 1s infinite;
+}
+
+#mister-tuto {
+    margin-top: 3rem;
+}
+
+/* Home part */
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     margin-top: 3rem;
 }
 
@@ -279,34 +358,6 @@ input[type='radio'] {
 h2 {
   text-align: center;
   display: block;
-}
-
-footer ul {
-  display: flex;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-footer button {
-  flex: 3 0 auto;
-  height: 3.2rem;
-  border: 0.2px solid white;
-  border-radius: 5px;
-  border-bottom: 0px;
-  background-color: var(--midGreen);
-  padding: 0;
-}
-
-footer button.selected {
-  flex: 4 0 auto;
-  background-color: var(--darkGreen);
-}
-
-footer a {
-  font-family: var(--textFont);
-  text-decoration: none;
-  color: white;
 }
 
 main,
@@ -555,6 +606,34 @@ input[type="radio"] {
   margin-bottom: 3rem;
   font-family: var(--textFont);
   color: whitesmoke;
+}
+
+footer ul {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+footer button {
+  flex: 3 0 auto;
+  height: 3.2rem;
+  border: 0.2px solid white;
+  border-radius: 5px;
+  border-bottom: 0px;
+  background-color: var(--midGreen);
+  padding: 0;
+}
+
+footer button.selected {
+  flex: 4 0 auto;
+  background-color: var(--darkGreen);
+}
+
+footer a {
+  font-family: var(--textFont);
+  text-decoration: none;
+  color: white;
 }
 
 @media screen and (min-width: 600px) {
