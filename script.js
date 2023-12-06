@@ -2,6 +2,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable linebreak-style */
 const eggSprite = document.querySelector('.eggSprite');
+const clicksPerMinutesParagraph = document.querySelector('.clicksPerMinute');
 
 const username = 'Agenor';
 const nextButton = document.querySelector('#next');
@@ -50,6 +51,8 @@ const instructions = [
 
 // eslint-disable-next-line no-unused-vars
 let clicksCounter = 0;
+let clicksStatistics = 0;
+let previousClicksNumber = 0;
 let autoClicksCounter = 0.5;
 let totalClicksCounter = 0;
 let currentXP = 0;
@@ -176,6 +179,19 @@ function startAutoClicker() {
   setInterval(click, 250);
 }
 
+/* Clicks per minute */
+
+const calculateClicsPerMinutes = () => {
+  clicksStatistics = clicksCounter - previousClicksNumber;
+  previousClicksNumber = clicksCounter;
+
+  clicksPerMinutesParagraph.textContent = `Clicks per minute : ${clicksStatistics * 60}`;
+};
+
+const startClickPerMinutes = () => {
+  setInterval(calculateClicsPerMinutes, 1000);
+};
+
 /* Clicks counter */
 
 if (eggSprite) {
@@ -187,6 +203,7 @@ if (eggSprite) {
   });
 
   startAutoClicker();
+  startClickPerMinutes();
 
   // Animation au clic du sprite
   eggSprite.addEventListener('click', () => {
@@ -262,12 +279,10 @@ function displaySelectedAvatar() {
     selectedAvatar.innerHTML = 'No avatar';
   }
 }
-
 if (window.location.href.match(/\b(player)\b/g)) {
   displayUsername();
   displaySelectedAvatar();
 }
-
 /* MisterTuto */
 
 tutoText.textContent = instructions.shift().message;

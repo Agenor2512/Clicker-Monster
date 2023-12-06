@@ -34,7 +34,6 @@ body {
   flex-direction: column;
   background-image: url('assets/background.png');
   background-repeat: no-repeat;
-  background-position: 25% 75%;
   background-size: cover;
 }
 
@@ -219,6 +218,13 @@ main #foreground-bar {
   height: 25rem;
   padding-top: 4rem;
   transition: transform 0.3s ease;
+}
+
+main p.clicksPerMinute {
+  margin-top: 4rem;
+  font-weight: bold;
+  font-family: var(--textFont);
+  color: var(--darkBrown);
 }
 
 @keyframes eggSpriteAnimation {
@@ -573,7 +579,6 @@ footer a {
   .avatar {
     justify-content: space-around;
     margin-bottom: 2rem;
-    
   }
 
   #username {
@@ -691,4 +696,60 @@ footer a {
   footer nav.mobile-navigation {
     display: none;
   }
+/* Player part */
+
+.playerInfo {
+  justify-content: left;
+  margin-bottom: 12rem;
+}
+
+.selectedAvatar {
+  margin-right: 4rem;
+}
+
+.usernameChosen {
+  margin-right: 2rem;
+}
+
+.score-container {
+  column-gap: 6rem;
+  margin-bottom: 12rem;
+}
+
+.points {
+  width: 14rem;
+}
+
+.score-title {
+  justify-content: center;
+}
+
+.total-points {
+  padding-left: 0.5rem;
+}
+
+.bonus-container {
+  grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr;
+  grid-template-rows: 1fr;
+  width: 40rem;
+  height: 7rem;
+}
+
+#first-bonus, #second-bonus {
+  border-right: 1px solid var(--midBrown);
+  border-bottom: 0px;
+}
+
+#first-icon, #second-icon {
+  border-bottom: 0px;
+}
+
+.star-bonus {
+  height: 6rem;
+  padding: 0.5rem;
+}
+
+.bonus-icons, .bonus-name {
+  margin-bottom: 0.5rem;
+}
 }
