@@ -334,7 +334,7 @@ image {
 }
 
 /* Pop-up */
-input[type="text"] {
+#username {
   margin-top: 1rem;
   padding: 0.2rem;
   border-radius: 15px solid;
@@ -342,7 +342,7 @@ input[type="text"] {
 }
 
 input[type="radio"] {
-  color: #CCAC50
+  color: var(--darkYellow)
 }
 
 .chooseButton {
@@ -352,7 +352,7 @@ input[type="radio"] {
   font-weight: 0;
   font-size: 17px;
   color: whitesmoke;
-  background-color: #7ea356;
+  background-color: var(--midGreen);
   padding: 10px 30px;
   border: none;
   border-radius: 50px;
@@ -367,8 +367,8 @@ input[type="radio"] {
   transition: 1511ms;
   padding: 10px 50px;
   background-color: whitesmoke;
-  color: #658245;
-  border: solid 2px #658245;
+  color: var(--darkGreen);
+  border: solid 2px var(--darkGreen);
 }
 
 .popup {
@@ -393,6 +393,27 @@ h2 {
 }
 
 @media screen and (min-width: 600px) {
+
+.popup, h2 {
+  font-size: 3rem;
+  margin-bottom: 6.5rem;
+}
+
+.chooseButton {
+  margin-top: 3rem;
+  font-size: 25px;
+}
+
+.avatar {
+  justify-content: space-around;
+  margin-bottom: 2rem;
+  
+}
+
+#username {
+  padding: 0.9rem;
+  border-radius: 30px;
+}
   header {
     flex-direction: row;
   }
