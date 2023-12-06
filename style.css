@@ -334,6 +334,7 @@ image {
 }
 
 /* Pop-up */
+
 #username {
   margin-top: 1rem;
   padding: 0.2rem;
@@ -385,8 +386,7 @@ input[type="radio"] {
   align-items: center;
 }
 
-.popup,
-h2 {
+.popup, h2 {
   margin-bottom: 3rem;
   font-family: var(--textFont);
   color: whitesmoke;
@@ -394,26 +394,27 @@ h2 {
 
 @media screen and (min-width: 600px) {
 
-.popup, h2 {
-  font-size: 3rem;
-  margin-bottom: 6.5rem;
-}
+  .popup, h2 {
+    font-size: 3rem;
+    margin-bottom: 6.5rem;
+  }
 
-.chooseButton {
-  margin-top: 3rem;
-  font-size: 25px;
-}
+  .chooseButton {
+    margin-top: 3rem;
+    font-size: 25px;
+  }
 
-.avatar {
-  justify-content: space-around;
-  margin-bottom: 2rem;
-  
-}
+  .avatar {
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    
+  }
 
-#username {
-  padding: 0.9rem;
-  border-radius: 30px;
-}
+  #username {
+    padding: 0.9rem;
+    border-radius: 30px;
+  }
+
   header {
     flex-direction: row;
   }
