@@ -221,24 +221,23 @@ if (eggSprite) {
 /* Pop-up */
 
 // Sélection du bouton de fermeture de la popup
-const chooseButton = document.getElementById('.chooseButton');
+// const chooseButton = document.querySelector('.chooseButton');
 // Ajout d'un écouteur d'événement au clic sur le bouton de fermeture
 document.addEventListener('click', () => {
   // Sélection de l'input d'ID 'username'
-  const usernameInput = document.getElementById('#username');
+  const usernameInput = document.querySelector('#username');
   // Obtention de la valeur de l'input sans les espaces avant et après
   const usernameValue = usernameInput.value.trim();
-
+  localStorage.setItem('usernameValue', usernameValue);
   // Vérification si la valeur de l'input 'username' n'est pas vide
   if (usernameValue !== '') {
     localStorage.usernameValue();
-    chooseButton.innerHTML = "<a href='tuto.html'>go to tuto</a>";
   }
 });
 
-// localstorage/player
+// Local Storage Username
 function displayUsername() {
-  const storedUsername = localStorage.getItem('username');
+  const storedUsername = localStorage.getItem('usernameValue');
   const usernameElement = document.querySelector('.usernameChosen');
   if (storedUsername) {
     // Affichage du nom d'utilisateur dans l'élément avec la classe 'usernameChosen'
@@ -248,8 +247,6 @@ function displayUsername() {
     usernameElement.innerText = 'Who are u ?!';
   }
 }
-displayUsername();
-
 // Local Storage Avatars
 
 // Fonction pour sélectionner un avatar et l'enregistrer dans le localStorage
@@ -282,8 +279,10 @@ function displaySelectedAvatar() {
     selectedAvatar.innerHTML = 'No avatar';
   }
 }
-displaySelectedAvatar();
-
+if (window.location.href.match(/\b(player)\b/g)) {
+  displayUsername();
+  displaySelectedAvatar();
+}
 /* MisterTuto */
 
 tutoText.textContent = instructions.shift().message;
