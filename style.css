@@ -88,26 +88,27 @@ main.tuto {
 }
 
 #tuto-bubble {
-    display: block;
-    margin-left: 2rem;
-    width: 100%;
-    height: auto;
+  display: block;
+  width: 21rem;
+  height: 16rem;
 }
 
 #instructions-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-40%,-140%);
-    text-align: center;
+  position: absolute;
+  width: 80%;
+  margin-top: -10rem;
+  margin-left: -7rem;
+  top: 48%;
+  left: 50%;
+  text-align: center;
 }
 
 #instructions {
-    margin: 0;
-    font-size: 1rem;
-    font-family: var(--textFont);
-    color: var(--darkBrown);
-    animation: anim-lineUp 2s;
+  margin: 0;
+  font-size: 1rem;
+  font-family: var(--textFont);
+  color: var(--darkBrown);
+  animation: anim-lineUp 2s;
 }
 
 @keyframes anim-lineUp {
@@ -129,12 +130,23 @@ main.tuto {
   }
 
  #next {
+  height: 100%;
+    margin-top: 0.6rem;
     margin-left: 8rem;
     border: 0;
     border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0);
-    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
     font-size: 1.5rem;
+    color: white;
+ }
+
+ #next a {
+  text-decoration: none;
+  vertical-align: center;
+  font-size: 1rem;
+  font-family: var(--textFont);
+  border-radius: 10px;
+  color: white;
  }
 
 @keyframes tutoHandAnimation {
