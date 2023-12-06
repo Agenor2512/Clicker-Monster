@@ -267,71 +267,6 @@ main p.clicksPerMinute {
   border-width: 10px;
 }
 
-/* Avatar and User name choice part */
-
-.avatar {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.image {
-  margin: 0 10px;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-  width: 100px;
-  height: 100px;
-}
-
-.image img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 100%;
-  max-height: 100%;
-  clip: rect(0, 100px, 70px, 0);
-}
-
-input[type='radio'] {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-h2 {
-  text-align: center;
-  display: block;
-}
-
-main,
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.7rem;
-  padding: 0.4rem;
-}
-
-input[type='text'] {
-  padding: 0.2rem;
-  border-radius: 15px;
-  border-color: #7ea356;
-}
-
-#choose {
-  background-color: transparent;
-  border: none;
-}
-
-#choose,
-image {
-  padding: 0;
-}
-
 /* Stat page */
 
 .stat-container {
@@ -498,16 +433,61 @@ main div.bonus-name p {
 
 /* Pop-up */
 
+.avatar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  margin: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+}
+
+.image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  clip: rect(0, 100px, 70px, 0);
+}
+
+input[type='radio'] {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+main,
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.4rem;
+}
+
+input[type='text'] {
+  padding: 0.2rem;
+  border-radius: 15px;
+  border-color: var(--lightGreen);
+  font-family: var(--textFont);
+}
+
 #username {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  padding: 0.2rem;
-  border-radius: 15px solid;
-  border-style: solid var(--darkBrown);
-}
-
-input[type="radio"] {
-  color: var(--darkYellow)
+  padding: 0.3rem;
+  color: var(--midBrown);
+  font-family: var(--textFont);
 }
 
 .chooseButton {
@@ -550,10 +530,17 @@ form button.chooseButton a:hover {
   align-items: center;
 }
 
-.popup, h2 {
+.popup, .titleAvatar {
+  font-size: 2rem;
   margin-bottom: 3rem;
   font-family: var(--textFont);
-  color: whitesmoke;
+  color: var(--lightBlue);
+  text-align: center;
+  text-shadow: 
+  -1px -1px 0 var(--darkBlue),
+  1px -1px 0 var(--darkBlue),
+  -1px 1px 0 var(--darkBlue),
+  2px 7px 7px rgba(0, 0, 0, 0.5);
 }
 
 footer ul {
@@ -588,7 +575,7 @@ footer a {
   
   /* Popup part */
   
-  .popup, h2 {
+  .popup, .titleAvatar {
     font-size: 3rem;
     margin-bottom: 6.5rem;
   }
