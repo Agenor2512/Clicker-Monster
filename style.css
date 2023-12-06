@@ -221,6 +221,13 @@ main #foreground-bar {
   transition: transform 0.3s ease;
 }
 
+main p.clicksPerMinute {
+  margin-top: 4rem;
+  font-weight: bold;
+  font-family: var(--textFont);
+  color: var(--darkBrown);
+}
+
 @keyframes eggSpriteAnimation {
   0% {
     transform: scale(1);
