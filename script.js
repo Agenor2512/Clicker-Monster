@@ -1,6 +1,52 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-plusplus */
+/* eslint-disable linebreak-style */
 const eggSprite = document.querySelector('.eggSprite');
+
+const username = 'Agenor';
+const nextButton = document.querySelector('#next');
+const tutoText = document.querySelector('#instructions');
+
+const instructions = [
+  {
+    message: `Welcome in Clicker Monster ${username} ! 
+        I'm Mister Tuto and I'm here to teach you 
+        the rules !`,
+  },
+
+  {
+    message: `You know for sure that this game consists in 
+        clicking on an egg and earn some XP to pass levels ! Maybe
+        you'll discover something interesting in the egg ?`,
+
+  },
+
+  {
+    message: `Now we are clear on your goal in this game, let's talk about
+        how to play and how to move on the site ! See, here it's the Player button, allow you to
+        access to your profile and others informations !`,
+
+    target: document.querySelector('#player'),
+  },
+
+  {
+    message: 'In Stats you can see... I let you guess. Yeah, your statistics !',
+
+    target: document.querySelector('#statistics'),
+  },
+
+  {
+    message: `And the star of this show... The Home page ! You'll find your new
+        creature here, even if it's not really yet a creature... You just have to click 
+        to rectify it !`,
+
+    target: document.querySelector('#home'),
+  },
+
+  {
+    message: `Good game ${username} !`,
+  },
+];
 
 // eslint-disable-next-line no-unused-vars
 let clicksCounter = 0;
@@ -172,3 +218,34 @@ document.addEventListener('click', () => {
     chooseButton.innerHTML = "<a href='tuto.html'>go to tuto</a>";
   }
 });
+
+/* MisterTuto */
+
+tutoText.textContent = instructions.shift().message;
+
+const toggleTutoHand = (target) => {
+  const tutoHand = document.querySelector('#tuto-hand');
+  tutoHand.style.visibility = 'hidden';
+
+  if (target) {
+    const topPosition = target.offsetTop - tutoHand.offsetHeight - 16;
+    const leftPosition = target.offsetLeft + (target.offsetWidth / 2) - (tutoHand.offsetWidth / 2);
+
+    tutoHand.style.top = `${topPosition}px`;
+    tutoHand.style.left = `${leftPosition}px`;
+    tutoHand.style.visibility = 'visible';
+  }
+};
+
+const handleTutoButtonClicks = () => {
+  if (instructions.length > 0) {
+    const currentInstruction = instructions.shift();
+    tutoText.textContent = currentInstruction.message;
+
+    toggleTutoHand(currentInstruction.target);
+  } else {
+    nextButton.innerHTML = "<a href='index.html'>Finish</a>";
+  }
+};
+
+nextButton.addEventListener('click', handleTutoButtonClicks);
