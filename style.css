@@ -473,6 +473,7 @@ main div.bonus-name p {
 
 #username {
   margin-top: 1rem;
+  margin-bottom: 1rem;
   padding: 0.2rem;
   border-radius: 15px solid;
   border-style: solid var(--darkBrown);
@@ -483,12 +484,7 @@ input[type="radio"] {
 }
 
 .chooseButton {
-  margin-top: 1rem;
   padding: 1rem;
-  font-family: var(--textFont);
-  font-weight: 0;
-  font-size: 17px;
-  color: whitesmoke;
   background-color: var(--midGreen);
   padding: 10px 30px;
   border: none;
@@ -500,12 +496,17 @@ input[type="radio"] {
   cursor: pointer;
 }
 
-.chooseButton:hover {
+form button.chooseButton a {
+  text-decoration: none;
+  font-family: var(--textFont);
+  font-weight: 0;
+  font-size: 17px;
+  color: whitesmoke;
+}
+
+form button.chooseButton a:hover {
   transition: 1511ms;
   padding: 10px 50px;
-  background-color: whitesmoke;
-  color: var(--darkGreen);
-  border: solid 2px var(--darkGreen);
 }
 
 .popup {
@@ -565,9 +566,8 @@ footer a {
     margin-bottom: 6.5rem;
   }
 
-  .chooseButton {
-    margin-top: 3rem;
-    font-size: 25px;
+  form button.chooseButton a {
+    font-size: 23px;
   }
 
   .avatar {
