@@ -240,7 +240,7 @@ image {
   padding-top: 2rem;
 }
 
-.unknow {
+.trophy-not-obtain-yet {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -249,7 +249,7 @@ image {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.nothing {
+.interrogation-point {
   display: flex;
   align-items: center;
   height: 100%;
@@ -467,15 +467,23 @@ h2 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 40%;
+    width: 60%;
   }
 
-  .unknow_background {
+  .not-obtain-background {
     width: 7rem;
   }
 
-  .item:hover, .unknow:hover, .graph-stat:hover {
+  .item:hover, .trophy-not-obtain-yet:hover, .graph-stat:hover {
     animation: trophyItemAnimation 2s infinite;
+  }
+
+  #second-item {
+    order: -3;
+  }
+
+  #third-item {
+    order: -4;
   }
 
   @keyframes trophyItemAnimation {
