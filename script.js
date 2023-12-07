@@ -81,7 +81,7 @@ const changerImageSelonNiveau = () => {
   // Vérification du niveau pour changer l'image
   switch (true) {
     case userLvl >= 1 && userLvl <= 10:
-      spriteChange.src = '/assets/golden-egg.png';
+      spriteChange.src = 'assets/golden-egg.png';
       break;
     case userLvl >= 11 && userLvl <= 20:
       spriteChange.src = '/assets/cracked-egg.png';
