@@ -310,8 +310,6 @@ if (window.location.href.match(/\b(player)\b/g)) {
 }
 /* MisterTuto */
 
-tutoText.textContent = instructions.shift().message;
-
 const toggleTutoHand = (target) => {
   const tutoHand = document.querySelector('#tuto-hand');
   tutoHand.style.visibility = 'hidden';
@@ -337,4 +335,7 @@ const handleTutoButtonClicks = () => {
   }
 };
 
-nextButton.addEventListener('click', handleTutoButtonClicks);
+if (window.location.href.match(/\b(tuto)\b/g)) {
+  tutoText.textContent = instructions.shift().message;
+  nextButton.addEventListener('click', handleTutoButtonClicks);
+}
