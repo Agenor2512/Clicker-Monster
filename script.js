@@ -3,6 +3,10 @@
 /* eslint-disable linebreak-style */
 const eggSprite = document.querySelector('.eggSprite');
 const clicksPerMinutesParagraph = document.querySelector('.clicksPerMinute');
+const USER_LVL_KEY = 'userLvl';
+const CURRENT_XP_KEY = 'currentXP';
+const XP_OF_CURRENT_LVL_KEY = 'xpOfCurrentLvl';
+const XP_OF_PREVIOUS_LVL_KEY = 'xpOfPreviousLvl';
 
 const nextButton = document.querySelector('#next');
 const tutoText = document.querySelector('#instructions');
@@ -59,20 +63,74 @@ const instructions = [
 let clicksCounter = 0;
 let clicksStatistics = 0;
 let previousClicksNumber = 0;
-let currentXP = 0;
 
 /* On déclare le niveau courant et précédent à 10
    pour rendre plus difficile dès le début la
    progression vers le prochain niveau */
-let xpOfCurrentLvl = 10;
-let xpOfPreviousLvl = 10;
-let userLvl = 1;
 let index = 0;
+
+// Local storage management
+const loadXP = () => {
+  const storedCurrentXP = localStorage[CURRENT_XP_KEY];
+  return parseInt(storedCurrentXP, 10);
+};
+
+const loadUserLvl = () => {
+  const value = localStorage[USER_LVL_KEY];
+  return parseInt(value, 10);
+};
+
+const saveXP = (value) => {
+  localStorage[CURRENT_XP_KEY] = value;
+
+  return value;
+};
+
+const loadXPOfCurrentLvl = () => {
+  const storedXPOfCurrentLvl = localStorage[XP_OF_CURRENT_LVL_KEY];
+  return parseInt(storedXPOfCurrentLvl, 10);
+};
+
+const saveXPOfCurrentLvl = (value) => {
+  localStorage[XP_OF_CURRENT_LVL_KEY] = value;
+};
+
+const loadXPOfPreviousLvl = () => {
+  const storedXPOfPreviousLvl = localStorage[XP_OF_PREVIOUS_LVL_KEY];
+  return parseInt(storedXPOfPreviousLvl, 10);
+};
+
+const saveXPOfPreviousLvl = (value) => {
+  localStorage[XP_OF_PREVIOUS_LVL_KEY] = value;
+};
+
+const incrementUserLvl = () => {
+  localStorage[USER_LVL_KEY] = loadUserLvl() + 1;
+};
+
+const initIfLocalStorageIsEmpty = () => {
+  if (Number.isNaN(loadXP())) {
+    saveXP(0);
+  }
+  if (Number.isNaN(loadUserLvl())) {
+    localStorage[USER_LVL_KEY] = 1;
+  }
+  if (Number.isNaN(loadXPOfCurrentLvl())) {
+    saveXPOfCurrentLvl(10);
+  }
+  if (Number.isNaN(loadXPOfPreviousLvl())) {
+    saveXPOfPreviousLvl(10);
+  }
+};
+
+initIfLocalStorageIsEmpty();
 
 /* Sprite evolution */
 
 // Fonction pour changer l'image en fonction du niveau
 const changerImageSelonNiveau = () => {
+  const userLvl = loadUserLvl();
+
   const spriteChange = document.querySelector('.eggSprite');
 
   // Vérification du niveau pour changer l'image
@@ -116,6 +174,8 @@ const changerImageSelonNiveau = () => {
 /* Calcule en prévision du prochain niveau grâce à la suite
    de fibonacci (Fn = Fn-1 + Fn-2) */
 const fibonacci = () => {
+  const xpOfCurrentLvl = loadXPOfCurrentLvl();
+  const xpOfPreviousLvl = loadXPOfPreviousLvl();
   const xpOfNextLvl = xpOfCurrentLvl + xpOfPreviousLvl;
   return xpOfNextLvl;
 };
@@ -126,14 +186,16 @@ const fibonacci = () => {
    -> temporary est une variable temporaire qui permet de conserver le niveau courant
    et le niveau précédent pour les intervertir et simuler le passage de niveaux */
 const passToNextLvl = () => {
+  const currentXP = loadXP();
+  const xpOfCurrentLvl = loadXPOfCurrentLvl();
+
   const remainingXP = currentXP - xpOfCurrentLvl;
   const temporary = xpOfCurrentLvl;
 
-  xpOfCurrentLvl = fibonacci();
-  xpOfPreviousLvl = temporary;
-  currentXP = remainingXP;
-  userLvl += 1;
-  localStorage.setItem('userLvl', userLvl);
+  saveXPOfCurrentLvl(fibonacci());
+  saveXPOfPreviousLvl(temporary);
+  saveXP(remainingXP);
+  incrementUserLvl();
 
   // Appel de la fonction pour changer l'image en fonction du niveau actuel
   changerImageSelonNiveau();
@@ -142,6 +204,8 @@ const passToNextLvl = () => {
 /* Simule la progression de la barre d'XP en fonction des points accumulés
    -> currentXP correspond à l'XP actuel du joueur (son nombre de clicks) */
 const updateProgressBar = () => {
+  const currentXP = loadXP();
+  const xpOfCurrentLvl = loadXPOfCurrentLvl();
   const foregroundBar = document.querySelector('#foreground-bar');
   const backgroundBar = document.querySelector('#background-bar');
   const maxwidth = backgroundBar.offsetWidth;
@@ -150,24 +214,13 @@ const updateProgressBar = () => {
   foregroundBar.style.width = `${progressWidth}px`;
 };
 
-const saveXPInLocalstorage = () => {
-  localStorage.setItem('parseStoredCurrentXp', currentXP);
-};
-
-const loadingStoredXP = () => {
-  const storedCurrentXP = localStorage.getItem('storedCurrentXP');
-  const parseStoredCurrentXp = parseInt(storedCurrentXP, 10);
-
-  saveXPInLocalstorage(parseStoredCurrentXp);
-
-  return parseStoredCurrentXp;
-};
-
 /* Affiche le nombre d'XP à atteindre et le nombre d'XP courant
    au dessus de la barre de progression
    -> currentXP correspond à l'XP actuel du joueur (son nombre de clicks)
    -> xpOfCurrentLvl correspond à l'XP qu'il faut atteindre */
 const displayXP = () => {
+  const currentXP = loadXP();
+  const xpOfCurrentLvl = loadXPOfCurrentLvl();
   const xpText = document.querySelector('#xp-text');
   xpText.textContent = `${currentXP}/${xpOfCurrentLvl}XP`;
 };
@@ -177,17 +230,20 @@ const displayXP = () => {
    Puis on met à jour la barre de progression, on affiche l'XP au dessus de la
    barre avec displayXP() */
 const increaseXP = (value) => {
+  let currentXP = loadXP();
+  const xpOfCurrentLvl = loadXPOfCurrentLvl();
   clicksCounter++;
-  currentXP = loadingStoredXP();
-  currentXP += value;
-  localStorage.setItem('parseStoredCurrentXp', currentXP);
+  currentXP = saveXP(currentXP + value);
 
   if (currentXP >= xpOfCurrentLvl) {
     passToNextLvl();
   }
-
-  updateProgressBar();
-  displayXP();
+  // Mettre à jour uniquement sur la page home quand le
+  // sprite est affiché
+  if (eggSprite) {
+    updateProgressBar();
+    displayXP();
+  }
 };
 
 function showNextEncouragement() {
@@ -238,7 +294,7 @@ if (eggSprite) {
     }
   });
 
-  startAutoClicker();
+  displayXP();
   startClickPerMinutes();
 
   // Animation au clic du sprite
@@ -254,6 +310,7 @@ if (eggSprite) {
   });
 }
 
+startAutoClicker();
 /* Pop-up */
 if (window.location.href.match(/\b(pop-up)\b/g)) {
   // Sélection du bouton de fermeture de la popup
@@ -321,7 +378,7 @@ function displaySelectedAvatar() {
 
 const displayStoredLvl = () => {
   const userLvlEmplacement = document.querySelector('.level');
-  const storedUserLvl = localStorage.getItem('userLvl');
+  const storedUserLvl = loadUserLvl();
 
   userLvlEmplacement.textContent = `Lvl ${storedUserLvl}`;
 };
