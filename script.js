@@ -26,7 +26,6 @@ const instructions = [
     message: `You know for sure that this game consists in 
         clicking on an egg and earn some XP to pass levels ! Maybe
         you'll discover something interesting in the egg ?`,
-
   },
 
   {
@@ -60,8 +59,6 @@ const instructions = [
 let clicksCounter = 0;
 let clicksStatistics = 0;
 let previousClicksNumber = 0;
-let autoClicksCounter = 0.5;
-let totalClicksCounter = 0;
 let currentXP = 0;
 
 /* On déclare le niveau courant et précédent à 10
@@ -136,6 +133,7 @@ const passToNextLvl = () => {
   xpOfPreviousLvl = temporary;
   currentXP = remainingXP;
   userLvl += 1;
+  localStorage.setItem('userLvl', userLvl);
 
   // Appel de la fonction pour changer l'image en fonction du niveau actuel
   changerImageSelonNiveau();
@@ -152,13 +150,26 @@ const updateProgressBar = () => {
   foregroundBar.style.width = `${progressWidth}px`;
 };
 
+const saveXPInLocalstorage = () => {
+  localStorage.setItem('parseStoredCurrentXp', currentXP);
+};
+
+const loadingStoredXP = () => {
+  const storedCurrentXP = localStorage.getItem('storedCurrentXP');
+  const parseStoredCurrentXp = parseInt(storedCurrentXP, 10);
+
+  saveXPInLocalstorage(parseStoredCurrentXp);
+
+  return parseStoredCurrentXp;
+};
+
 /* Affiche le nombre d'XP à atteindre et le nombre d'XP courant
    au dessus de la barre de progression
    -> currentXP correspond à l'XP actuel du joueur (son nombre de clicks)
    -> xpOfCurrentLvl correspond à l'XP qu'il faut atteindre */
 const displayXP = () => {
   const xpText = document.querySelector('#xp-text');
-  xpText.textContent = `${Math.round(currentXP)}/${xpOfCurrentLvl}XP`;
+  xpText.textContent = `${currentXP}/${xpOfCurrentLvl}XP`;
 };
 
 /* Permet d'ajouter l'XP à l'XP courant
@@ -166,7 +177,10 @@ const displayXP = () => {
    Puis on met à jour la barre de progression, on affiche l'XP au dessus de la
    barre avec displayXP() */
 const increaseXP = (value) => {
+  clicksCounter++;
+  currentXP = loadingStoredXP();
   currentXP += value;
+  localStorage.setItem('parseStoredCurrentXp', currentXP);
 
   if (currentXP >= xpOfCurrentLvl) {
     passToNextLvl();
@@ -191,8 +205,7 @@ function showNextEncouragement() {
 /* Auto-clicker */
 
 function click() {
-  autoClicksCounter++;
-  increaseXP(totalClicksCounter);
+  increaseXP(clicksCounter);
 }
 
 function startAutoClicker() {
@@ -205,7 +218,9 @@ const calculateClicsPerMinutes = () => {
   clicksStatistics = clicksCounter - previousClicksNumber;
   previousClicksNumber = clicksCounter;
 
-  clicksPerMinutesParagraph.textContent = `Clicks per minute : ${clicksStatistics * 60}`;
+  clicksPerMinutesParagraph.textContent = `Clicks per minute : ${
+    clicksStatistics * 60
+  }`;
 };
 
 const startClickPerMinutes = () => {
@@ -216,10 +231,7 @@ const startClickPerMinutes = () => {
 
 if (eggSprite) {
   eggSprite.addEventListener('click', () => {
-    clicksCounter++;
-    totalClicksCounter++;
-    totalClicksCounter += autoClicksCounter;
-    increaseXP(1);
+    increaseXP(clicksCounter);
 
     if (clicksCounter === 1) {
       setInterval(showNextEncouragement, 6000);
@@ -243,21 +255,24 @@ if (eggSprite) {
 }
 
 /* Pop-up */
+if (window.location.href.match(/\b(pop-up)\b/g)) {
+  // Sélection du bouton de fermeture de la popup
+  // const chooseButton = document.querySelector('.chooseButton');
+  // Ajout d'un écouteur d'événement au clic sur le bouton de fermeture
+  const chooseBtn = document.querySelector('.chooseButton');
 
-// Sélection du bouton de fermeture de la popup
-// const chooseButton = document.querySelector('.chooseButton');
-// Ajout d'un écouteur d'événement au clic sur le bouton de fermeture
-document.addEventListener('click', () => {
-  // Sélection de l'input d'ID 'username'
-  const usernameInput = document.querySelector('#username');
-  // Obtention de la valeur de l'input sans les espaces avant et après
-  const usernameValue = usernameInput.value.trim();
-  localStorage.setItem('usernameValue', usernameValue);
-  // Vérification si la valeur de l'input 'username' n'est pas vide
-  if (usernameValue !== '') {
-    localStorage.usernameValue();
-  }
-});
+  chooseBtn.addEventListener('click', () => {
+    // Sélection de l'input d'ID 'username'
+    const usernameInput = document.querySelector('#username');
+    // Obtention de la valeur de l'input sans les espaces avant et après
+    const usernameValue = usernameInput.value.trim();
+    localStorage.setItem('usernameValue', usernameValue);
+    // Vérification si la valeur de l'input 'username' n'est pas vide
+    if (usernameValue !== '') {
+      localStorage.usernameValue();
+    }
+  });
+}
 
 // Local Storage Username
 function displayUsername() {
@@ -303,9 +318,18 @@ function displaySelectedAvatar() {
     selectedAvatar.innerHTML = 'No avatar';
   }
 }
+
+const displayStoredLvl = () => {
+  const userLvlEmplacement = document.querySelector('.level');
+  const storedUserLvl = localStorage.getItem('userLvl');
+
+  userLvlEmplacement.textContent = `Lvl ${storedUserLvl}`;
+};
+
 if (window.location.href.match(/\b(player)\b/g)) {
   displayUsername();
   displaySelectedAvatar();
+  displayStoredLvl();
 }
 /* MisterTuto */
 
@@ -315,7 +339,7 @@ const toggleTutoHand = (target) => {
 
   if (target) {
     const topPosition = target.offsetTop - tutoHand.offsetHeight - 16;
-    const leftPosition = target.offsetLeft + (target.offsetWidth / 2) - (tutoHand.offsetWidth / 2);
+    const leftPosition = target.offsetLeft + target.offsetWidth / 2 - tutoHand.offsetWidth / 2;
 
     tutoHand.style.top = `${topPosition}px`;
     tutoHand.style.left = `${leftPosition}px`;
