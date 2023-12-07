@@ -331,7 +331,7 @@ const handleTutoButtonClicks = () => {
 
     toggleTutoHand(currentInstruction.target);
   } else {
-    nextButton.innerHTML = "<a href='index.html'>Finish</a>";
+    nextButton.innerHTML = "<a href='home.html'>Finish</a>";
   }
 };
 

@@ -1,52 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clicker Monster</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
-  </head>
+    <title>Clicker-Monster</title>
+</head>
 
-  <body>
-    <header>
-      <img src="assets/egg-logo.png" alt="egg-logo" class="egg-logo" />
-      <h1>Clicker Monster</h1>
+<body>
+    <!-- Le pop-up -->
 
-      <nav class="desktop-navigation">
-        <ul>
-          <li id="statistics"><a href="/stats.html">Stats</a></li>
-          <li id="home"><a href="/index.html">Home</a></li>
-          <li><a href="/player.html">Player</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div id="popup" class="popup">
+        <div class="pop-up">
+            <h2 class="titleAvatar">Choose your avatar</h2>
+            <div class="avatar">
+                <div class="image">
+                    <img src="assets/avatar3.png" alt="Avatar 3" class="avatar3">
+                    <input type="radio" id="avatar3" name="avatar" value="assets/avatar3.png" onchange="selectAvatar(this.value)">
+                </div>
 
-    <main>
-      <p id="xp-text">0/10</p>
-      <section class="bar-container">
-        <div id="background-bar">
-          <div id="foreground-bar"></div>
-        </div>
-      </section>
-      <img src="/assets/golden-egg.png" alt="eggSprite" class="eggSprite" />
-      <p class="clicksPerMinute"></p>
-      <div class="encouragement-bubble" id="encouragementBubble">
-        <p id="encouragementMessage">Message d'encouragement ici</p>
-      </div>
-    </main>
+                <div class="image">
+                    <img src="assets/avatar2.png" alt="Avatar 2" class="avatar2">
+                    <input type="radio" id="avatar2" name="avatar" value="assets/avatar2.png" onchange="selectAvatar(this.value)">
+                </div>
 
-    <footer>
-      <nav class="mobile-navigation">
-        <ul>
-          <button id="statistics"><a href="/stats.html">Stats</a></button>
-          <button class="selected" id="home">
-            <a href="/index.html">Home</a>
-          </button>
-          <button id="player"><a href="/player.html">Player</a></button>
-        </ul>
-      </nav>
-    </footer>
+                <div class="image">
+                    <img src="assets/avatar1.png" alt="avatar1" class="avatar1">
+                    <input type="radio" id="avatar1" name="avatar" value="assets/avatar1.png" onchange="selectAvatar(this.value)">
+                </div>
+            </div>
+            <form id="form">
+                <input type="text" name="username" placeholder="Enter your player name..." id="username" value="" />
+                <button class="chooseButton"><a href="tuto.html">CHOOSE</a></button>
+            </form>
+            <script src="script.js"></script>
+</body>
 
-    <script src="script.js"></script>
-  </body>
 </html>

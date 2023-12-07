@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clicker Monster</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <img src="assets/egg-logo.png" alt="egg-logo" class="egg-logo" />
+      <h1>Clicker Monster</h1>
+
+      <nav class="desktop-navigation">
+        <ul>
+          <li id="statistics"><a href="/stats.html">Stats</a></li>
+          <li id="home"><a href="/home.html">Home</a></li>
+          <li><a href="/player.html">Player</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <p id="xp-text">0/10</p>
+      <section class="bar-container">
+        <div id="background-bar">
+          <div id="foreground-bar"></div>
+        </div>
+      </section>
+      <img src="/assets/golden-egg.png" alt="eggSprite" class="eggSprite" />
+      <p class="clicksPerMinute"></p>
+      <div class="encouragement-bubble" id="encouragementBubble">
+        <p id="encouragementMessage">Message d'encouragement ici</p>
+      </div>
+    </main>
+
+    <footer>
+      <nav class="mobile-navigation">
+        <ul>
+          <button id="statistics"><a href="/stats.html">Stats</a></button>
+          <button class="selected" id="home">
+            <a href="/home.html">Home</a>
+          </button>
+          <button id="player"><a href="/player.html">Player</a></button>
+        </ul>
+      </nav>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
