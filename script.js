@@ -4,7 +4,6 @@
 const eggSprite = document.querySelector('.eggSprite');
 const clicksPerMinutesParagraph = document.querySelector('.clicksPerMinute');
 
-const username = 'Agenor';
 const nextButton = document.querySelector('#next');
 const tutoText = document.querySelector('#instructions');
 const encouragementBubble = document.getElementById('encouragementBubble');
@@ -18,7 +17,7 @@ const messages = [
 
 const instructions = [
   {
-    message: `Welcome in Clicker Monster ${username} ! 
+    message: `Welcome in Clicker Monster ! 
         I'm Mister Tuto and I'm here to teach you 
         the rules !`,
   },
@@ -53,7 +52,7 @@ const instructions = [
   },
 
   {
-    message: `Good game ${username} !`,
+    message: 'Good game !',
   },
 ];
 
