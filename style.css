@@ -329,16 +329,33 @@ main p.clicksPerMinute {
 
 .playerInfo {
   display: flex;
-  margin-bottom: 5rem;
-  margin-top: 2rem;
+  margin-bottom: 4rem;
+  margin-top: 3rem;
   width: 100%;
   justify-content: space-around;
 }
 
-.avatarChosen {
+.selectedAvatar {
   width: 6rem;
   align-self: center;
   text-align: center;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+}
+
+.selectedAvatar img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  clip: rect(0, 100px, 70px, 0);
 }
 
 .usernameChosen {
@@ -350,6 +367,7 @@ main p.clicksPerMinute {
   border-radius: 15px;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  height: 2.5rem;
 }
 
 .level {
@@ -361,6 +379,7 @@ main p.clicksPerMinute {
   border-radius: 150px;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  height: 2.5rem;
 }
 
 .score-container {
@@ -381,7 +400,7 @@ main p.clicksPerMinute {
 }
 
 .score-title {
-  justify-content: center;
+  text-align: center;
   margin-bottom: 0%;
   font-size: 1rem;
 }
@@ -708,11 +727,21 @@ footer a {
 
 .playerInfo {
   justify-content: left;
-  margin-bottom: 12rem;
+  margin-bottom: 10rem;
 }
 
 .selectedAvatar {
   margin-right: 4rem;
+  overflow: visible;
+  width: 200px;
+  height: 200px;
+}
+
+.selectedAvatar img {
+  top: 0%;
+  left: 0%;
+  transform: translate(0%, 0%);
+  clip: rect(0, 200px, 200px, 0);
 }
 
 .usernameChosen {
