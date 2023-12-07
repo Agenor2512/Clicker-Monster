@@ -254,8 +254,8 @@ main p.clicksPerMinute {
   padding: 15px;
   max-width: 300px;
   display: none;
-  left: 130px;
-  bottom: 10px;
+  left: 90px;
+  bottom: 14px;
   font-family: var(--textFont)
 }
 
