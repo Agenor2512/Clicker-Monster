@@ -63,11 +63,8 @@ const instructions = [
 let clicksCounter = 0;
 let clicksStatistics = 0;
 let previousClicksNumber = 0;
-
-/* On déclare le niveau courant et précédent à 10
-   pour rendre plus difficile dès le début la
-   progression vers le prochain niveau */
 let index = 0;
+let isAutocClicksStarted = false;
 
 // Local storage management
 const loadXP = () => {
@@ -265,6 +262,7 @@ function click() {
 }
 
 function startAutoClicker() {
+  isAutocClicksStarted = true;
   setInterval(click, 250);
 }
 
@@ -292,6 +290,9 @@ if (eggSprite) {
     if (clicksCounter === 1) {
       setInterval(showNextEncouragement, 6000);
     }
+    if (!isAutocClicksStarted) {
+      startAutoClicker();
+    }
   });
 
   displayXP();
@@ -310,7 +311,6 @@ if (eggSprite) {
   });
 }
 
-startAutoClicker();
 /* Pop-up */
 if (window.location.href.match(/\b(pop-up)\b/g)) {
   // Sélection du bouton de fermeture de la popup
