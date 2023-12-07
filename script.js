@@ -7,6 +7,7 @@ const USER_LVL_KEY = 'userLvl';
 const CURRENT_XP_KEY = 'currentXP';
 const XP_OF_CURRENT_LVL_KEY = 'xpOfCurrentLvl';
 const XP_OF_PREVIOUS_LVL_KEY = 'xpOfPreviousLvl';
+const IS_AUTOCLICKS_STARTED = 'isAutoClicksStarted';
 
 const nextButton = document.querySelector('#next');
 const tutoText = document.querySelector('#instructions');
@@ -64,7 +65,6 @@ let clicksCounter = 0;
 let clicksStatistics = 0;
 let previousClicksNumber = 0;
 let index = 0;
-let isAutocClicksStarted = false;
 
 // Local storage management
 const loadXP = () => {
@@ -77,24 +77,29 @@ const loadUserLvl = () => {
   return parseInt(value, 10);
 };
 
+const loadXPOfCurrentLvl = () => {
+  const storedXPOfCurrentLvl = localStorage[XP_OF_CURRENT_LVL_KEY];
+  return parseInt(storedXPOfCurrentLvl, 10);
+};
+
+const loadXPOfPreviousLvl = () => {
+  const storedXPOfPreviousLvl = localStorage[XP_OF_PREVIOUS_LVL_KEY];
+  return parseInt(storedXPOfPreviousLvl, 10);
+};
+
+const loadAutoClicksState = () => {
+  const storedAutoClicksState = localStorage[IS_AUTOCLICKS_STARTED];
+  return storedAutoClicksState ? storedAutoClicksState === 'true' : undefined;
+};
+
 const saveXP = (value) => {
   localStorage[CURRENT_XP_KEY] = value;
 
   return value;
 };
 
-const loadXPOfCurrentLvl = () => {
-  const storedXPOfCurrentLvl = localStorage[XP_OF_CURRENT_LVL_KEY];
-  return parseInt(storedXPOfCurrentLvl, 10);
-};
-
 const saveXPOfCurrentLvl = (value) => {
   localStorage[XP_OF_CURRENT_LVL_KEY] = value;
-};
-
-const loadXPOfPreviousLvl = () => {
-  const storedXPOfPreviousLvl = localStorage[XP_OF_PREVIOUS_LVL_KEY];
-  return parseInt(storedXPOfPreviousLvl, 10);
 };
 
 const saveXPOfPreviousLvl = (value) => {
@@ -103,6 +108,10 @@ const saveXPOfPreviousLvl = (value) => {
 
 const incrementUserLvl = () => {
   localStorage[USER_LVL_KEY] = loadUserLvl() + 1;
+};
+
+const setAutoClicksState = () => {
+  localStorage[IS_AUTOCLICKS_STARTED] = true;
 };
 
 const initIfLocalStorageIsEmpty = () => {
@@ -117,6 +126,9 @@ const initIfLocalStorageIsEmpty = () => {
   }
   if (Number.isNaN(loadXPOfPreviousLvl())) {
     saveXPOfPreviousLvl(10);
+  }
+  if (!loadAutoClicksState()) {
+    localStorage[IS_AUTOCLICKS_STARTED] = false;
   }
 };
 
@@ -262,7 +274,7 @@ function click() {
 }
 
 function startAutoClicker() {
-  isAutocClicksStarted = true;
+  setAutoClicksState();
   setInterval(click, 250);
 }
 
@@ -290,10 +302,14 @@ if (eggSprite) {
     if (clicksCounter === 1) {
       setInterval(showNextEncouragement, 6000);
     }
-    if (!isAutocClicksStarted) {
+    if (!loadAutoClicksState()) {
       startAutoClicker();
     }
   });
+
+  if (loadAutoClicksState()) {
+    startAutoClicker();
+  }
 
   displayXP();
   startClickPerMinutes();
