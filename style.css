@@ -248,14 +248,14 @@ main p.clicksPerMinute {
 
 .encouragement-bubble {
   position: relative;
-  background-color: #46535e;
-  color: #fff;
-  border-radius: 10px;
-  padding: 15px;
+  background-color:rgba(248, 223, 120, 0.7);
+  color: var(--darkBrown);
+  border-radius: 30px;
+  padding: 5px;
   max-width: 300px;
   display: none;
   left: 90px;
-  bottom: 14px;
+  bottom: 5px;
   font-family: var(--textFont)
 }
 
