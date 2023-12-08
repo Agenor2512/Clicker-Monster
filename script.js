@@ -350,7 +350,7 @@ if (window.location.href.match(/\b(index)\b/g)) {
     const currentpath = window.location.href.split('/');
     currentpath.pop();
 
-    window.location.replace(`${currentpath.join('/')}/tuto.html`);
+    window.location.href = `${currentpath.join('/')}/tuto.html`;
   });
 }
 
