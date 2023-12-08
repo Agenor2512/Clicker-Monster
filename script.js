@@ -337,7 +337,7 @@ if (window.location.href.match(/\b(index)\b/g)) {
 
   chooseBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    console.log("On appuie sur choose");
+
     // Sélection de l'input d'ID 'username'
     const usernameInput = document.querySelector('#username');
     // Obtention de la valeur de l'input sans les espaces avant et après
