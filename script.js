@@ -329,22 +329,25 @@ if (eggSprite) {
 }
 
 /* Pop-up */
-if (window.location.href.match(/\b(pop-up)\b/g)) {
+if (window.location.href.match(/\b(index)\b/g)) {
   // Sélection du bouton de fermeture de la popup
   // const chooseButton = document.querySelector('.chooseButton');
   // Ajout d'un écouteur d'événement au clic sur le bouton de fermeture
   const chooseBtn = document.querySelector('.chooseButton');
 
-  chooseBtn.addEventListener('click', () => {
+  chooseBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    console.log("On appuie sur choose");
     // Sélection de l'input d'ID 'username'
     const usernameInput = document.querySelector('#username');
     // Obtention de la valeur de l'input sans les espaces avant et après
     const usernameValue = usernameInput.value.trim();
-    localStorage.setItem('usernameValue', usernameValue);
     // Vérification si la valeur de l'input 'username' n'est pas vide
     if (usernameValue !== '') {
-      localStorage.usernameValue();
+      localStorage.setItem('usernameValue', usernameValue);
     }
+
+    window.location.replace("tuto.html");
   });
 }
 
