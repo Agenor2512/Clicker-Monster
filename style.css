@@ -80,10 +80,10 @@ main.tuto {
 }
 
 #dialog-container {
-  position: relative;
+  position: fixed;
   width: 100%;
   max-width: 300px;
-  margin: auto;
+  margin-top: 2rem;
 }
 
 #tuto-hand {
@@ -94,6 +94,9 @@ main.tuto {
 
 #mister-tuto {
   margin-top: 3rem;
+  position: fixed;
+  top: 45%;
+  left: 5%;
 }
 
 #tuto-bubble {
@@ -103,11 +106,11 @@ main.tuto {
 }
 
 #instructions-container {
-  position: absolute;
+  position: relative;
   width: 80%;
-  margin-top: -9rem;
+  margin-top: -13rem;
   margin-left: -7rem;
-  top: 48%;
+  top: 5%;
   left: 50%;
   text-align: center;
 }
@@ -121,9 +124,13 @@ main.tuto {
 }
 
  #next {
-  height: 100%;
-  margin-top: 0.6rem;
-  margin-left: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 4%;
+  top: 36%;
+  left: 72%;
   border: 0;
   border-radius: 12px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -631,6 +638,24 @@ footer a {
     text-align: left;
     font-size: 1.8rem;
     margin-left: 2rem;
+  }
+
+  /* Tuto */
+
+  #mister-tuto {
+    top: 60%;
+    left: 30%;
+  }
+
+  #next {
+    height: 5%;
+    top: 53%;
+    left: 56%;
+    border: 0;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 1.5rem;
+    color: white;
   }
   
   /* Nav part */
