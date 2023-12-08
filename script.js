@@ -313,6 +313,7 @@ if (eggSprite) {
 
   displayXP();
   startClickPerMinutes();
+  changerImageSelonNiveau();
 
   // Animation au clic du sprite
   eggSprite.addEventListener('click', () => {
