@@ -378,7 +378,7 @@ main p.clicksPerMinute {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 5%;
+  width: 20%;
   text-align: center;
   background-color: var(--lightYellow);
   font-family: var(--textFont);
@@ -746,6 +746,7 @@ footer a {
   footer nav.mobile-navigation {
     display: none;
   }
+
 /* Player part */
 
 .playerInfo {
@@ -770,6 +771,10 @@ footer a {
 
 .usernameChosen {
   margin-right: 2rem;
+}
+
+.level {
+  width: 8%;
 }
 
 .score-container {
