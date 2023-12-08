@@ -361,26 +361,30 @@ main p.clicksPerMinute {
 }
 
 .usernameChosen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 8rem;
   text-align: center;
   background-color: var(--midBlue);
   font-family: var(--textFont);
   color: rgb(255, 255, 255);
   border-radius: 15px;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem;
   height: 2.5rem;
 }
 
 .level {
-  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5%;
   text-align: center;
   background-color: var(--lightYellow);
   font-family: var(--textFont);
   color: var(--darkBrown);
-  border-radius: 150px;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  border-radius: 15px;
+  padding: 0.5rem;
   height: 2.5rem;
 }
 
