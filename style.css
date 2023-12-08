@@ -533,17 +533,13 @@ input[type='text'] {
   flex-direction: row;
   align-items: center;
   cursor: pointer;
-}
-
-form button.chooseButton a {
-  text-decoration: none;
   font-family: var(--textFont);
   font-weight: 0;
   font-size: 17px;
   color: whitesmoke;
 }
 
-form button.chooseButton a:hover {
+form button.chooseButton:hover {
   transition: 1511ms;
   padding: 10px 50px;
 }
