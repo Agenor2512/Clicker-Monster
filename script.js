@@ -347,7 +347,10 @@ if (window.location.href.match(/\b(index)\b/g)) {
       localStorage.setItem('usernameValue', usernameValue);
     }
 
-    window.location.replace("tuto.html");
+    const currentpath = window.location.href.split('/');
+    currentpath.pop();
+
+    window.location.replace(`${currentpath.join('/')}/tuto.html`);
   });
 }
 
