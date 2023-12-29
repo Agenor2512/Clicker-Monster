@@ -80,9 +80,11 @@ main.tuto {
 }
 
 #dialog-container {
-  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
   width: 100%;
-  max-width: 300px;
   margin-top: 2rem;
 }
 
@@ -94,24 +96,19 @@ main.tuto {
 
 #mister-tuto {
   margin-top: 3rem;
-  position: fixed;
-  top: 45%;
-  left: 5%;
+  margin-right: 12rem;
 }
 
 #tuto-bubble {
-  display: block;
+  display: flex;
   width: 21rem;
   height: 18rem;
 }
 
 #instructions-container {
-  position: relative;
-  width: 80%;
-  margin-top: -13rem;
-  margin-left: -7rem;
-  top: 5%;
-  left: 50%;
+  position: fixed;
+  margin-top: 7rem;
+  width: 18rem;
   text-align: center;
 }
 
@@ -127,10 +124,10 @@ main.tuto {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
   height: 4%;
-  top: 36%;
-  left: 72%;
+  position: fixed;
+  margin-top: 13.5rem;
+  margin-left: 12rem;
   border: 0;
   border-radius: 12px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -639,14 +636,10 @@ footer a {
   /* Tuto */
 
   #mister-tuto {
-    top: 60%;
-    left: 30%;
+    margin-right: 22rem;
   }
 
   #next {
-    height: 5%;
-    top: 53%;
-    left: 56%;
     border: 0;
     border-radius: 12px;
     background-color: rgba(0, 0, 0, 0.5);
@@ -708,7 +701,7 @@ footer a {
   main p.clicksPerMinute {
     position: absolute;
     bottom: 25%;
-    left: 8%;
+    left: 15%;
   }
 
   .eggSprite {
@@ -846,8 +839,8 @@ footer a {
   position: absolute;
   width: 300px;
   text-align: center;
-  left: 900px;
-  bottom: 140px;
+  left: 1100px;
+  bottom: 170px;
   font-size: 1.2rem;
 }
 }
